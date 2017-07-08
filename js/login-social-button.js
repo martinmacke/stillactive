@@ -1,0 +1,1 @@
+$('div.wc-social-login').clone().appendTo('form.register');

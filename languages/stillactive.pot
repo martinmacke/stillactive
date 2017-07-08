@@ -1,0 +1,734 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-07-06 16:45+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: author.php:10
+msgid "Author"
+msgstr ""
+
+#: author.php:36 category.php:36 index.php:35
+msgid "No posts in this category yet, check back soon!"
+msgstr ""
+
+#: footer.php:125
+msgid ""
+"Save this activity to your wishlist. Access wishlist in your account "
+"settings."
+msgstr ""
+
+#: front-page.php:27
+msgid "What will you explore"
+msgstr ""
+
+#: front-page.php:27
+msgid "today?"
+msgstr ""
+
+#: front-page.php:28
+msgid ""
+"Still Active is a hassle-free service to meet like-minded people and "
+"discover unique activities in Stockholm!"
+msgstr ""
+
+#: front-page.php:56 single.php:55
+msgid "Join Now!"
+msgstr ""
+
+#: front-page.php:59 front-page.php:75
+msgid "Browse all activities"
+msgstr ""
+
+#: front-page.php:60
+msgid "Watch how it works"
+msgstr ""
+
+#: front-page.php:70
+msgid "Most popular today"
+msgstr ""
+
+#: front-page.php:84
+msgid "Support us on"
+msgstr ""
+
+#: front-page.php:85
+#, php-format
+msgid ""
+"Our crowdfunding campaign is in full speed. Help us turn our vision into "
+"reality, support Still Active today and get 20% off our gift cards!"
+msgstr ""
+
+#: front-page.php:86
+msgid "Support Still Active"
+msgstr ""
+
+#: front-page.php:98
+msgid "About us"
+msgstr ""
+
+#: front-page.php:99
+msgid ""
+"Hassle-free service where you discover your recommended activities and book "
+"and pay for them directly."
+msgstr ""
+
+#: front-page.php:105
+msgid "Watch video"
+msgstr ""
+
+#: front-page.php:114
+msgid "Meet our partners"
+msgstr ""
+
+#: front-page.php:116
+msgid ""
+"At Still Active, we are handpicking our partners to ensure highest quality "
+"standards and customer satisfaction. Find out who we work with."
+msgstr ""
+
+#: front-page.php:124
+msgid "Meet our Partners"
+msgstr ""
+
+#: front-page.php:124
+msgid "Become a Partner"
+msgstr ""
+
+#: functions.php:44 woocommerce/functions.php:44
+msgid "Main Menu"
+msgstr ""
+
+#: functions.php:46 woocommerce/functions.php:46
+msgid "Menu Top Left"
+msgstr ""
+
+#: functions.php:48 woocommerce/functions.php:48
+msgid "Menu Top Right"
+msgstr ""
+
+#: functions.php:50 woocommerce/functions.php:50
+msgid "Customer Service"
+msgstr ""
+
+#: functions.php:392 woocommerce/functions.php:392
+msgid "400x300"
+msgstr ""
+
+#: functions.php:394 woocommerce/functions.php:394
+msgid "Square"
+msgstr ""
+
+#: functions.php:396 woocommerce/functions.php:396
+msgid "Blogpost"
+msgstr ""
+
+#: functions.php:398 woocommerce/functions.php:398
+msgid "600x450"
+msgstr ""
+
+#: functions.php:400 woocommerce/functions.php:400
+msgid "1200x400"
+msgstr ""
+
+#: functions.php:1801 woocommerce/functions.php:1801
+msgid "Saved for Later"
+msgstr ""
+
+#: header.php:76 images/header.php:72
+msgid "View shopping cart"
+msgstr ""
+
+#: index.php:6
+msgid "Blog"
+msgstr ""
+
+#: page-stripe-api-test.php:30 page.php:16 single.php:69
+#: page-templates/vendor-registration.php:55 templates/page-slim.php:36
+msgid "Sorry, no posts matched your criteria."
+msgstr ""
+
+#: product-searchform.php:25
+msgid "Search"
+msgstr ""
+
+#: product-searchform.php:26
+msgctxt "placeholder"
+msgid "Search"
+msgstr ""
+
+#: product-searchform.php:26
+msgctxt "label"
+msgid "Search for:"
+msgstr ""
+
+#: product-searchform.php:27
+msgctxt "submit button"
+msgid "Search"
+msgstr ""
+
+#: single-product-reviews.php:34 woocommerce/single-product-reviews.php:37
+#, php-format
+msgid "%s review for %s%s%s"
+msgid_plural "%s reviews for %s%s%s"
+msgstr[0] ""
+msgstr[1] ""
+
+#: single-product-reviews.php:36 woocommerce/single-product-reviews.php:39
+msgid "Reviews"
+msgstr ""
+
+#: single-product-reviews.php:60 woocommerce/single-product-reviews.php:63
+msgid "There are no reviews yet."
+msgstr ""
+
+#: single-product-reviews.php:73 woocommerce/single-product-reviews.php:76
+msgid "Add a review"
+msgstr ""
+
+#: single-product-reviews.php:73 woocommerce/single-product-reviews.php:76
+#, php-format
+msgid "Be the first to review &ldquo;%s&rdquo;"
+msgstr ""
+
+#: single-product-reviews.php:74 woocommerce/single-product-reviews.php:77
+#, php-format
+msgid "Leave a Reply to %s"
+msgstr ""
+
+#: single-product-reviews.php:77 woocommerce/single-product-reviews.php:80
+msgid "Name"
+msgstr ""
+
+#: single-product-reviews.php:79 woocommerce/single-product-reviews.php:82
+msgid "Email"
+msgstr ""
+
+#: single-product-reviews.php:82 woocommerce/single-product-reviews.php:85
+msgid "Submit"
+msgstr ""
+
+#: single-product-reviews.php:88 woocommerce/single-product-reviews.php:91
+#, php-format
+msgid "You must be <a href=\"%s\">logged in</a> to post a review."
+msgstr ""
+
+#: single-product-reviews.php:92 woocommerce/single-product-reviews.php:95
+msgid "Your Rating"
+msgstr ""
+
+#: single-product-reviews.php:93 woocommerce/single-product-reviews.php:96
+msgid "Rate&hellip;"
+msgstr ""
+
+#: single-product-reviews.php:94 woocommerce/single-product-reviews.php:97
+msgid "Perfect"
+msgstr ""
+
+#: single-product-reviews.php:95 woocommerce/single-product-reviews.php:98
+msgid "Good"
+msgstr ""
+
+#: single-product-reviews.php:96 woocommerce/single-product-reviews.php:99
+msgid "Average"
+msgstr ""
+
+#: single-product-reviews.php:97 woocommerce/single-product-reviews.php:100
+msgid "Not that bad"
+msgstr ""
+
+#: single-product-reviews.php:98 woocommerce/single-product-reviews.php:101
+msgid "Very Poor"
+msgstr ""
+
+#: single-product-reviews.php:102 woocommerce/single-product-reviews.php:105
+msgid "Your Review"
+msgstr ""
+
+#: single-product-reviews.php:113 woocommerce/single-product-reviews.php:117
+msgid ""
+"Only logged in customers who have purchased this product may leave a review."
+msgstr ""
+
+#: single.php:35
+msgid "Share"
+msgstr ""
+
+#: single.php:54
+msgid "Have you been inspired to stay active?"
+msgstr ""
+
+#: page-templates/vendor-registration.php:35
+msgid "My Account"
+msgstr ""
+
+#: templates/custom_admin_vendor.php:13
+msgid "Welcome to My Custom Dashboard Page"
+msgstr ""
+
+#: templates/custom_admin_vendor.php:16
+msgid ""
+"Donec id elit non mi porta gravida at eget metus. Cum sociis natoque "
+"penatibus et magnis dis parturient montes, nascetur ridiculus mus."
+msgstr ""
+
+#: templates/custom_admin_vendor.php:21
+msgid "Step 1"
+msgstr ""
+
+#: templates/custom_admin_vendor.php:23
+msgid "Step 2"
+msgstr ""
+
+#: templates/custom_admin_vendor.php:25
+msgid "Step 3"
+msgstr ""
+
+#: templates/custom_admin_vendor.php:30
+msgid "Morbi leo risus, porta ac consectetur"
+msgstr ""
+
+#: templates/custom_admin_vendor.php:34
+msgid "Risus Consectetur Elit Sollicitudin"
+msgstr ""
+
+#: templates/custom_admin_vendor.php:35
+msgid ""
+"Cras mattis consectetur purus sit amet fermentum. Vivamus sagittis lacus vel "
+"augue laoreet rutrum faucibus dolor auctor. Vestibulum id ligula porta felis "
+"euismod semper. Cras justo odio, dapibus ac facilisis in, egestas eget quam. "
+"Nulla vitae elit libero, a pharetra augue. Donec sed odio dui."
+msgstr ""
+
+#: templates/custom_admin_vendor.php:37
+msgid "Mattis Justo Purus"
+msgstr ""
+
+#: templates/custom_admin_vendor.php:38
+msgid ""
+"Aenean lacinia bibendum nulla sed consectetur. Donec id elit non mi porta "
+"gravida at eget metus. Lorem ipsum dolor sit amet, consectetur adipiscing "
+"elit. Vestibulum id ligula porta felis euismod semper. Integer posuere erat "
+"a ante venenatis dapibus posuere velit aliquet.\n"
+"Cras mattis consectetur purus sit amet fermentum. Maecenas faucibus mollis "
+"interdum. Etiam porta sem malesuada magna mollis euismod. Maecenas faucibus "
+"mollis interdum. Curabitur blandit tempus porttitor. Cras justo odio, "
+"dapibus ac facilisis in, egestas eget quam."
+msgstr ""
+
+#: woocommerce/archive-product.php:85
+msgid "Still Active Partners"
+msgstr ""
+
+#: woocommerce/archive-product.php:108 woocommerce/archive-product.php:216
+#: woocommerce/single-product/related.php:139
+#: woocommerce/single-product/short-description.php:67
+#, php-format
+msgid "Rated %s out of 5"
+msgstr ""
+
+#: woocommerce/archive-product.php:110 woocommerce/archive-product.php:218
+#: woocommerce/single-product/related.php:141
+#: woocommerce/single-product/short-description.php:69
+#, php-format
+msgid "out of %s5%s"
+msgstr ""
+
+#: woocommerce/archive-product.php:111 woocommerce/archive-product.php:219
+#: woocommerce/single-product/related.php:142
+#: woocommerce/single-product/short-description.php:70
+#, php-format
+msgid "based on %s customer rating"
+msgid_plural "based on %s customer ratings"
+msgstr[0] ""
+msgstr[1] ""
+
+#: woocommerce/archive-product.php:114
+msgid " Ratings"
+msgstr ""
+
+#: woocommerce/archive-product.php:115
+msgid "Partner Rating"
+msgstr ""
+
+#: woocommerce/archive-product.php:151
+msgid "Our Activities"
+msgstr ""
+
+#: woocommerce/archive-product.php:241
+msgid "Sold By:"
+msgstr ""
+
+#: woocommerce/cart.php:26 woocommerce/cart/cart.php:28
+msgid "Product"
+msgstr ""
+
+#: woocommerce/cart.php:27 woocommerce/cart/cart.php:29
+msgid "Price"
+msgstr ""
+
+#: woocommerce/cart.php:28 woocommerce/cart/cart.php:30
+msgid "Quantity"
+msgstr ""
+
+#: woocommerce/cart.php:29 woocommerce/cart/cart-totals.php:78
+#: woocommerce/cart/cart.php:31
+msgid "Total"
+msgstr ""
+
+#: woocommerce/cart.php:50 woocommerce/cart/cart.php:112
+#: woocommerce/cart/mini-cart.php:46
+msgid "Remove this item"
+msgstr ""
+
+#: woocommerce/cart.php:82 woocommerce/cart/cart.php:73
+msgid "Available on backorder"
+msgstr ""
+
+#: woocommerce/cart.php:128 woocommerce/cart/cart.php:132
+msgid "Coupon"
+msgstr ""
+
+#: woocommerce/cart.php:128
+msgid "Coupon code"
+msgstr ""
+
+#: woocommerce/cart.php:128 woocommerce/cart/cart.php:132
+msgid "Apply Coupon"
+msgstr ""
+
+#: woocommerce/cart.php:134
+msgid "Update Cart"
+msgstr ""
+
+#: woocommerce/cart/cart-empty.php:26
+msgid "Your shopping bag is currently empty."
+msgstr ""
+
+#: woocommerce/cart/cart-empty.php:30
+msgid "Return To Shop"
+msgstr ""
+
+#: woocommerce/cart/cart-totals.php:19
+msgid "Shopping Bag Totals"
+msgstr ""
+
+#: woocommerce/cart/cart-totals.php:24 woocommerce/cart/mini-cart.php:77
+msgid "Subtotal"
+msgstr ""
+
+#: woocommerce/cart/cart-totals.php:46
+msgid "Shipping"
+msgstr ""
+
+#: woocommerce/cart/cart-totals.php:90
+#, php-format
+msgid " (taxes estimated for %s)"
+msgstr ""
+
+#: woocommerce/cart/cart-totals.php:93
+#, php-format
+msgid ""
+"Note: Shipping and taxes are estimated%s and will be updated during checkout "
+"based on your billing and shipping information."
+msgstr ""
+
+#: woocommerce/cart/cart.php:132
+msgid "Enter Coupon code here"
+msgstr ""
+
+#: woocommerce/cart/cart.php:138
+msgid "Update Shopping Cart"
+msgstr ""
+
+#: woocommerce/cart/mini-cart.php:69
+msgid "Your shopping bag is empty."
+msgstr ""
+
+#: woocommerce/cart/mini-cart.php:82
+msgid "View Bag"
+msgstr ""
+
+#: woocommerce/cart/mini-cart.php:83
+msgid "Checkout"
+msgstr ""
+
+#: woocommerce/checkout/form-billing.php:19
+msgid "Billing &amp; Shipping"
+msgstr ""
+
+#: woocommerce/checkout/form-billing.php:23
+msgid "Billing Address"
+msgstr ""
+
+#: woocommerce/checkout/form-billing.php:42
+msgid "Create an account?"
+msgstr ""
+
+#: woocommerce/checkout/form-billing.php:53
+msgid ""
+"Create an account by entering the information below. If you are a returning "
+"customer please login at the top of the page."
+msgstr ""
+
+#: woocommerce/checkout/form-checkout.php:25
+msgid "You must be logged in to checkout."
+msgstr ""
+
+#: woocommerce/checkout/form-checkout.php:46
+msgid "Your order"
+msgstr ""
+
+#: woocommerce/checkout/form-shipping.php:33
+msgid "Ship to a different address?"
+msgstr ""
+
+#: woocommerce/checkout/form-shipping.php:61
+msgid "Additional Information"
+msgstr ""
+
+#: woocommerce/myaccount/dashboard.php:22
+msgid "Hello"
+msgstr ""
+
+#: woocommerce/myaccount/dashboard.php:26
+#, php-format
+msgid ""
+"From your account dashboard you can view your %1$srecent orders%2$s, manage "
+"your %3$sshipping and billing addresses%2$s and %4$sedit your password and "
+"account details%2$s."
+msgstr ""
+
+#: woocommerce/myaccount/form-login.php:39
+#: woocommerce/myaccount/form-login.php:58
+msgid "Login"
+msgstr ""
+
+#: woocommerce/myaccount/form-login.php:46
+msgid "Username or email address"
+msgstr ""
+
+#: woocommerce/myaccount/form-login.php:50
+#: woocommerce/myaccount/form-login.php:104
+msgid "Password"
+msgstr ""
+
+#: woocommerce/myaccount/form-login.php:60
+msgid "Remember me"
+msgstr ""
+
+#: woocommerce/myaccount/form-login.php:64
+msgid "Lost your password?"
+msgstr ""
+
+#: woocommerce/myaccount/form-login.php:81
+#: woocommerce/myaccount/form-login.php:118
+msgid "Register"
+msgstr ""
+
+#: woocommerce/myaccount/form-login.php:90
+msgid "Username"
+msgstr ""
+
+#: woocommerce/myaccount/form-login.php:97
+msgid "Email address"
+msgstr ""
+
+#: woocommerce/myaccount/form-login.php:111
+msgid "Anti-spam"
+msgstr ""
+
+#: woocommerce/myaccount/my-account.php:145
+msgid "Welcome to Still Active"
+msgstr ""
+
+#: woocommerce/myaccount/my-account.php:147
+msgid ""
+"You are now part of the Still Active community. We are happy that you have "
+"joined us!"
+msgstr ""
+
+#: woocommerce/myaccount/my-account.php:149
+#: woocommerce/myaccount/my-account.php:159
+msgid "Next Tip"
+msgstr ""
+
+#: woocommerce/myaccount/my-account.php:156
+msgid "Book Activites"
+msgstr ""
+
+#: woocommerce/myaccount/my-account.php:157
+msgid ""
+"Discover our wide range of activities and book and pay directly for them. "
+"Select a category to easily find the activities you love!"
+msgstr ""
+
+#: woocommerce/myaccount/my-account.php:166
+msgid "Meet Others"
+msgstr ""
+
+#: woocommerce/myaccount/my-account.php:167
+msgid "Connect with other activity-enthusiasts in your city."
+msgstr ""
+
+#: woocommerce/myaccount/my-account.php:169
+msgid "Got it"
+msgstr ""
+
+#: woocommerce/single-product/meta.php:37
+msgid "SKU:"
+msgstr ""
+
+#: woocommerce/single-product/meta.php:37
+msgid "N/A"
+msgstr ""
+
+#: woocommerce/single-product/meta.php:41
+msgid "Category:"
+msgid_plural "Categories:"
+msgstr[0] ""
+msgstr[1] ""
+
+#: woocommerce/single-product/meta.php:43
+msgid "Tag:"
+msgid_plural "Tags:"
+msgstr[0] ""
+msgstr[1] ""
+
+#: woocommerce/single-product/product-image.php:46
+msgid "Placeholder"
+msgstr ""
+
+#: woocommerce/single-product/product-thumbnails.php:77
+msgid "See dates"
+msgstr ""
+
+#: woocommerce/single-product/product-thumbnails.php:80
+#: woocommerce/single-product/product-thumbnails.php:81
+msgid "Save for later"
+msgstr ""
+
+#: woocommerce/single-product/related.php:42
+msgid "Related Products"
+msgstr ""
+
+#: woocommerce/single-product/related.php:49
+msgid "Default sorting"
+msgstr ""
+
+#: woocommerce/single-product/related.php:50
+msgid "Sort by popularity"
+msgstr ""
+
+#: woocommerce/single-product/related.php:51
+msgid "Sort by average rating"
+msgstr ""
+
+#: woocommerce/single-product/related.php:52
+msgid "Sort by newness"
+msgstr ""
+
+#: woocommerce/single-product/related.php:53
+msgid "Sort by price: low to high"
+msgstr ""
+
+#: woocommerce/single-product/related.php:54
+msgid "Sort by price: high to low"
+msgstr ""
+
+#: woocommerce/single-product/short-description.php:73
+#, php-format
+msgid "%s review"
+msgid_plural "%s reviews"
+msgstr[0] ""
+msgstr[1] ""
+
+#: woocommerce/single-product/short-description.php:89
+msgid "Hosted By"
+msgstr ""
+
+#: woocommerce/single-product/short-description.php:97
+msgid "Approx. activity length"
+msgstr ""
+
+#: woocommerce/single-product/short-description.php:101
+msgid "Activity difficulty"
+msgstr ""
+
+#: woocommerce/single-product/short-description.php:105
+msgid "Exclusive"
+msgstr ""
+
+#: woocommerce/single-product/short-description.php:105
+msgid "by Still Active"
+msgstr ""
+
+#: woocommerce/single-product/short-description.php:137
+msgid "Address"
+msgstr ""
+
+#: woocommerce/single-product/short-description.php:142
+msgid "Show Map"
+msgstr ""
+
+#: woocommerce/single-product/short-description.php:156
+msgid "Cancellation Policy"
+msgstr ""
+
+#: woocommerce/single-product/short-description.php:159
+msgid "This booking can be cancelled for free until "
+msgstr ""
+
+#: woocommerce-bookings/myaccount/bookings.php:34
+msgid "ID"
+msgstr ""
+
+#: woocommerce-bookings/myaccount/bookings.php:35
+msgid "Booked"
+msgstr ""
+
+#: woocommerce-bookings/myaccount/bookings.php:36
+msgid "Order"
+msgstr ""
+
+#: woocommerce-bookings/myaccount/bookings.php:37
+msgid "Start Date"
+msgstr ""
+
+#: woocommerce-bookings/myaccount/bookings.php:38
+msgid "End Date"
+msgstr ""
+
+#: woocommerce-bookings/myaccount/bookings.php:39
+msgid "Status"
+msgstr ""
+
+#: woocommerce-bookings/myaccount/bookings.php:77
+msgid "Cancel"
+msgstr ""
+
+#: woocommerce-bookings/myaccount/bookings.php:93
+msgid "Go Shop"
+msgstr ""
+
+#: woocommerce-bookings/myaccount/bookings.php:95
+msgid "No bookings available yet."
+msgstr ""
+
+#: woocommerce-bookings/single-product/add-to-cart/booking.php:22
+msgid "Your browser must support JavaScript in order to make a booking."
+msgstr ""

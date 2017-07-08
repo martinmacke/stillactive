@@ -1,0 +1,98 @@
+/*fonst*/
+$brandon: "brandon-grotesque", Helvetica, sans;
+
+/*colors*/
+$color_light_blue: #33ccff;
+$color_dark_blue: #005678;
+
+$color_white: #ffffff;
+$color_grey: #909090;
+
+/*custom vendor sales table*/
+#wcpv_vendor_sales_dashboard_widget {
+    .wc_status_list {
+        li {
+            &.out-of-stock {
+                a {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+/*custom wp admin bar*/
+#wpadminbar {
+    &:not(.mobile) {
+        .ab-top-menu {
+            &> li {
+                &> .ab-item {
+                    padding-right: 20px;
+                }
+            }
+        }
+    }
+
+    #wp-admin-bar-my-account {
+        &.with-avatar {
+            &>.ab-empty-item,
+            &>a {
+                img {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+
+
+/*screen meta*/
+#screen-meta-links {
+    display: none;
+}
+
+/*custom dashboard title*/
+//#wpbody-content {
+//    .wrap {
+//        h1 {
+//            line-height: 60px;
+//            position: relative;
+//            padding: 2px 0 0 80px;
+//
+//            &:before {
+//                content: '';
+//                background-position: center;
+//                background-repeat: no-repeat;
+//                background-image: url(../images/logo-blue.png);
+//                background-size: 100%;
+//                position: absolute;
+//                display: block;
+//                height: 60px;
+//                width: 60px;
+//                left: 0;
+//                top: 2px;
+//            }
+//        }
+//    }
+//}
+
+
+
+/*vendors settings apge*/
+#wcpv-vendor-settings {
+    tbody {
+        tr {
+            &:last-child {
+                display: none !important;
+            }
+        }
+    }
+}
+
+
+
+/*vendors support page*/
+#faq-for-vendors {
+    padding: 50px 0 0;
+}

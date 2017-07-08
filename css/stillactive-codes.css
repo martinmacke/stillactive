@@ -1,0 +1,12 @@
+
+.dashicons-orders:before { content: '\e801'; } /* '' */
+.dashicons-reports:before { content: '\e802'; } /* '' */
+.dashicons-products:before { content: '\e804'; } /* '' */
+.dashicons-bookings:before { content: '\e805'; } /* '' */
+.dashicons-settings:before { content: '\e806'; } /* '' */
+.dashicons-support:before { content: '\e807'; } /* '' */
+.dashicons-admin-comments:before { content: '\f101'; } /* '' */
+.dashicons-admin-media:before { content: '\f104'; } /* '' */
+.dashicons-admin-users:before { content: '\f110'; } /* '' */
+.dashicons-dashboard:before { content: '\f226'; } /* '' */
+.dashicons-menu:before { content: '\f333'; } /* '' */

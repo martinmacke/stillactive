@@ -1,0 +1,18 @@
+body.login {
+	background: url('images/bg-login.jpg') no-repeat;
+	background-size: cover;
+}
+.login #nav a, .login #backtoblog a {
+	/* color: #808284; */
+}
+.login h1 a {
+	background-image: url('images/logo-stillactive-blue.svg');
+	background-position: center center;
+	background-repeat: no-repeat;
+	width: 120px;
+	height: 120px;
+	background-size: contain;
+}
+#footer-thankyou {
+	display: none;
+}

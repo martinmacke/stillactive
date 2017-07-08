@@ -1,0 +1,203 @@
+/*fonst*/
+/*colors*/
+/*base*/
+body {
+  background: #ffffff; }
+  body.vendor #wpbody-content #dashboard-widgets #postbox-container-1 {
+    width: 100%; }
+
+.postbox {
+  border-radius: 5px; }
+
+.stuffbox .hndle,
+.postbox .hndle {
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  background: #33ccff;
+  color: #ffffff; }
+
+#adminmenu .wp-submenu,
+#adminmenuback,
+#adminmenuwrap,
+#adminmenu {
+  background-color: #005678; }
+
+ul#adminmenu a.wp-has-current-submenu:after,
+ul#adminmenu > li.current > a.current:after {
+  border-right-color: #ffffff; }
+
+.js .postbox .handlediv .toggle-indicator:before {
+  color: #ffffff; }
+
+/*custom wp admin bar*/
+#wpadminbar {
+  text-transform: uppercase;
+  font-family: "brandon-grotesque", Helvetica, sans;
+  background: #ffffff;
+  font-size: 10px;
+  color: #909090; }
+  #wpadminbar #wp-admin-bar-site-name > a.ab-item,
+  #wpadminbar #wp-admin-bar-my-sites > a.ab-item {
+    padding-left: 10px;
+    padding-top: 10px;
+    line-height: 0;
+    font-size: 0;
+    height: 22px; }
+    #wpadminbar #wp-admin-bar-site-name > a.ab-item:before,
+    #wpadminbar #wp-admin-bar-my-sites > a.ab-item:before {
+      display: none; }
+    #wpadminbar #wp-admin-bar-site-name > a.ab-item:after,
+    #wpadminbar #wp-admin-bar-my-sites > a.ab-item:after {
+      content: '';
+      background: url(../images/admin-icons/admin-icon-site-logo.png) no-repeat center;
+      display: block;
+      height: 10px;
+      width: 97px; }
+  #wpadminbar #wp-admin-bar-new-content:focus .ab-icon:before, #wpadminbar #wp-admin-bar-new-content:hover .ab-icon:before,
+  #wpadminbar #wp-admin-bar-comments:focus .ab-icon:before,
+  #wpadminbar #wp-admin-bar-comments:hover .ab-icon:before,
+  #wpadminbar #wp-admin-bar-updates:focus .ab-icon:before,
+  #wpadminbar #wp-admin-bar-updates:hover .ab-icon:before {
+    color: #33ccff; }
+  #wpadminbar #wp-admin-bar-new-content .ab-icon:before,
+  #wpadminbar #wp-admin-bar-comments .ab-icon:before,
+  #wpadminbar #wp-admin-bar-updates .ab-icon:before {
+    color: #909090; }
+  #wpadminbar > #wp-toolbar span.ab-label, #wpadminbar > #wp-toolbar span.noticon {
+    color: #909090; }
+  #wpadminbar .ab-empty-item,
+  #wpadminbar a.ab-item {
+    color: #909090; }
+  #wpadminbar:not(.mobile) .ab-top-menu > li.hover > .ab-item {
+    background: #ffffff; }
+  #wpadminbar:not(.mobile) .ab-top-menu > li > .ab-item {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: "brandon-grotesque", Helvetica, sans;
+    font-weight: bold;
+    font-size: 10px;
+    color: #909090; }
+    #wpadminbar:not(.mobile) .ab-top-menu > li > .ab-item:focus, #wpadminbar:not(.mobile) .ab-top-menu > li > .ab-item:hover {
+      background: #ffffff; }
+  #wpadminbar .menupop .ab-sub-wrapper {
+    background: #ffffff; }
+  #wpadminbar .ab-submenu .ab-item {
+    color: #909090; }
+  #wpadminbar .quicklinks .menupop:hover ul li a, #wpadminbar .quicklinks .menupop.hover ul li a {
+    color: #909090; }
+  #wpadminbar .quicklinks .menupop ul li a {
+    color: #909090; }
+    #wpadminbar .quicklinks .menupop ul li a strong {
+      color: #909090; }
+
+/*custom icons*/
+#wpadminbar #wp-admin-bar-wp-logo {
+  display: none; }
+  #wpadminbar #wp-admin-bar-wp-logo > .ab-item .ab-icon:before {
+    content: '';
+    background: url(../images/admin-icons/admin-icon-logo.png) no-repeat center;
+    position: absolute;
+    display: block;
+    height: 28px;
+    width: 28px;
+    left: -3px;
+    top: 2px; }
+
+/*custom left admin menu*/
+#adminmenuback,
+#adminmenuwrap,
+#adminmenu {
+  background: #ffffff; }
+
+#adminmenu #toplevel_page_wcpv-vendor-orders div.dashicons-before:before, #adminmenu #toplevel_page_wcpv-vendor-orders div.wp-menu-image:before {
+  content: '\e801';
+  font-family: "stillactive";
+  font-size: 1.1em; }
+#adminmenu #menu-dashboard div.dashicons-before:before, #adminmenu #menu-dashboard div.wp-menu-image:before {
+  content: '\f226';
+  font-family: "stillactive"; }
+#adminmenu #menu-media div.dashicons-before:before, #adminmenu #menu-media div.wp-menu-image:before {
+  content: '\f104';
+  font-family: "stillactive";
+  font-size: 1.1em; }
+#adminmenu #menu-posts-product div.dashicons-before:before, #adminmenu #menu-posts-product div.wp-menu-image:before {
+  content: '\e804';
+  font-family: "stillactive" !important; }
+#adminmenu #menu-posts-wc_booking div.dashicons-before:before, #adminmenu #menu-posts-wc_booking div.wp-menu-image:before {
+  content: '\e805';
+  font-family: "stillactive";
+  font-size: 1.1em; }
+#adminmenu #toplevel_page_wcpv-vendor-reports div.dashicons-before:before, #adminmenu #toplevel_page_wcpv-vendor-reports div.wp-menu-image:before {
+  content: '\e802';
+  font-family: "stillactive"; }
+#adminmenu #toplevel_page_wcpv-vendor-settings div.dashicons-before:before, #adminmenu #toplevel_page_wcpv-vendor-settings div.wp-menu-image:before {
+  content: '\e806';
+  font-family: "stillactive"; }
+#adminmenu #toplevel_page_wcpv-vendor-support div.dashicons-before:before, #adminmenu #toplevel_page_wcpv-vendor-support div.wp-menu-image:before {
+  content: '\e807';
+  font-family: "stillactive"; }
+#adminmenu #menu-users div.dashicons-before:before, #adminmenu #menu-users div.wp-menu-image:before {
+  content: '\f110';
+  font-family: "stillactive"; }
+#adminmenu #menu-comments div.dashicons-before:before, #adminmenu #menu-comments div.wp-menu-image:before {
+  content: '\f101';
+  font-family: "stillactive"; }
+#adminmenu .wp-submenu {
+  background: #ffffff; }
+#adminmenu .wp-menu-arrow {
+  color: #33ccff; }
+  #adminmenu .wp-menu-arrow div {
+    color: #33ccff; }
+#adminmenu div.wp-menu-image:before {
+  color: #000000; }
+#adminmenu li:hover div.wp-menu-image:before {
+  color: #ffffff; }
+#adminmenu li.menu-top:hover {
+  background: transparent; }
+  #adminmenu li.menu-top:hover > a {
+    border-radius: 0 17px 17px 0;
+    background: #33ccff;
+    color: #ffffff; }
+#adminmenu li.opensub:after {
+  display: none; }
+#adminmenu li.opensub > a.menu-top {
+  border-radius: 0 17px 17px 0;
+  background: #33ccff;
+  color: #ffffff; }
+#adminmenu li.opensub div.wp-menu-image:before {
+  color: #ffffff; }
+#adminmenu li.wp-has-current-submenu div.wp-menu-image:before, #adminmenu li.current div.wp-menu-image:before {
+  color: #ffffff; }
+#adminmenu li.wp-has-current-submenu a:focus div.wp-menu-image:before, #adminmenu li.current a:focus div.wp-menu-image:before {
+  color: #ffffff; }
+#adminmenu li.wp-has-current-submenu a.wp-has-current-submenu, #adminmenu li.wp-has-current-submenu a.menu-top, #adminmenu li.current a.wp-has-current-submenu, #adminmenu li.current a.menu-top {
+  border-radius: 0 17px 17px 0;
+  background: #33ccff;
+  color: #ffffff; }
+#adminmenu .wp-has-current-submenu.opensub .wp-submenu {
+  background: #ffffff; }
+#adminmenu .wp-has-current-submenu .wp-submenu {
+  background: #ffffff; }
+  #adminmenu .wp-has-current-submenu .wp-submenu li.current a {
+    font-weight: bold;
+    color: #33ccff; }
+#adminmenu .wp-submenu {
+  background: #ffffff; }
+  #adminmenu .wp-submenu a {
+    color: #33ccff; }
+#adminmenu a {
+  color: #33ccff; }
+
+ul#adminmenu a.wp-has-current-submenu:after {
+  display: none; }
+ul > li.current > a.current:after {
+  display: none; }
+
+/*custom dashboard title*/
+#wpbody-content .wrap h1 {
+  font-family: "brandon-grotesque", Helvetica, sans;
+  font-weight: bold;
+  font-size: 30px;
+  padding: 2px 0 0;
+  margin: 0 0 20px;
+  color: #005678; }
