@@ -1,13 +1,7 @@
 <!-- Footer -->
-
-
-
 <footer>
-
 <div class="container">
-
 <div class="row">
-
 
 <div class="col-sm-3 col-xs-8">
 	<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('Footer 1') ) : endif; ?>
@@ -34,19 +28,12 @@
 
 
 <div class="clearfix visible-xs-block"></div>
-
 <div class="col-xs-12 bottom">
-
 	<p class="pull-left credit">© Still Active. All rights reserved.</p>
-
 	<p class="pull-right terms"><?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('Footer Bottom Right') ) : endif; ?></p>
-
 </div>
 
-
-
 </div>
-
 </footer>
 
     <div id="myModal" class="modal ">
@@ -62,8 +49,6 @@
     </div>
 
 <?php wp_footer(); ?>
-
-
 
 <script>
 
@@ -165,7 +150,5 @@ jQuery('.woocommerce-LoopProduct-link > img').removeAttr('title');
     });
 </script> 
 
- 
 </body>
-
 </html>
