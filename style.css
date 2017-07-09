@@ -805,8 +805,8 @@ legend {
 	font-weight: bold;
 	width: auto;
 	margin-top: 22px;
-	padding-left: 22px;
-	padding-right: 22px;
+	padding-left: 30px;
+	padding-right: 30px;
 	border-radius: 50px;
 }
 .btn.btn-primary, input[type="submit"].button {
@@ -838,7 +838,7 @@ a.vc_btn3-style-custom:hover {
 	color: #33ccff;
 }
 .btn-lg {
-	font-size: 150%;
+	font-size: 125%;
 }
 .wp-caption {
 	max-width: 100%;
