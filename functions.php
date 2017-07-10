@@ -53,7 +53,7 @@ if ( function_exists('register_sidebar') )
 	register_sidebar(array(
 		'name' => 'Sidebar',
 		'before_widget' => '<div>',
-		'after_widget' => '</div>', 
+		'after_widget' => '</div>',
 		'before_title' => '<h5>',
 		'after_title' => '</h5>',
 	));
@@ -136,7 +136,7 @@ function woocommerce_support() {
     add_theme_support( 'woocommerce-product-vendors' );
 }
 /* Custom thumbnail sizes */
-if ( function_exists( 'add_image_size' ) ) { 
+if ( function_exists( 'add_image_size' ) ) {
 	add_image_size( '400x300', 400, 300, array( 'center', 'center' ) );
 	add_image_size( 'square', 400, 400, array( 'center', 'center' ) );
 	add_image_size( 'Blogpost', 800, 300, array( 'center', 'center' ) );
@@ -295,13 +295,13 @@ function hiding_and_set_product_settings(){
      $roles = wp_get_current_user()->roles;
  if ( $roles['0'] == 'wc_product_vendors_admin_vendor'){
         ## CSS RULES ## (change the opacity to 0 after testing)
-        // HERE Goes OUR CSS To hide 'virtual' and 'downloadable' and 'Enable person types' checkboxes  
+        // HERE Goes OUR CSS To hide 'virtual' and 'downloadable' and 'Enable person types' checkboxes
         ?>
         <style>
             label[for="_virtual"], label[for="_downloadable"], ._wc_booking_has_person_types_field { display: none !important; }
 			 ._wc_booking_calendar_display_mode_field , ._wc_booking_requires_confirmation_field { display: none; }
 			._wc_booking_user_can_cancel_field  {}
-         </style> 
+         </style>
         <?php
         ## JQUERY SCRIPT ##
         // Here we set as selected the 'virtual' and 'downloadable' checkboxes
@@ -316,12 +316,12 @@ function hiding_and_set_product_settings(){
 }
 }
 add_action('show_user_profile', 'numediaweb_custom_user_profile_fields');
-function numediaweb_custom_user_profile_fields($user) { 
+function numediaweb_custom_user_profile_fields($user) {
 ?>
  <style>
            .description { display: block!important;}
 	 #your-profile h2:nth-child(5n) ,.user-language-wrap { display: none!important;}
-         </style> 
+         </style>
 		 <script>
 		  (function($){
                 $('.user-sessions-wrap > th').html('Security');
@@ -447,7 +447,7 @@ function add_bookings_menu_bubble() {
 							$sa_results			= $wpdb->get_results($query, ARRAY_N);
 							$booking_counter	+= count( $sa_results );
 						}
-					} 
+					}
 					wp_reset_postdata();
 				}
 				$booking_count	= '<span class="sa_bookings_count update-plugins count-'.$booking_counter.'" title="Upcoming bookings"><span class="plugin-count">'. $booking_counter .'</span></span>';
@@ -539,7 +539,7 @@ function review_modal_script(){
                </center>
             </div>
             <div class="modal-footer">
-            	<center>	
+            	<center>
             	<a href="mailto:hello@stillactive.se" class="btn btn-primary">Get in touch</a>
                 <br />
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -562,7 +562,7 @@ function wswp_booking_form_fields() {
     if( is_user_logged_in() ){
 		$roles = wp_get_current_user()->roles;
 		if( in_array( 'wc_product_vendors_admin_vendor', $roles ) ){
-		?>	
+		?>
 			<script>
 				jQuery(document).ready( function(){
 					if( jQuery('#_wc_booking_user_can_cancel').length > 0 ){
@@ -587,4 +587,56 @@ function wswp_booking_form_fields() {
 		<?php
 		}
 	}
+}
+
+
+/**
+ * move social login buttons on account form from "login" to "register
+ */
+function sa_social_login_move_register_buttons() {
+  if ( function_exists( 'wc_social_login' ) && ! is_admin() ) {
+    remove_action( 'woocommerce_login_form_end', array( wc_social_login()->get_frontend_instance(), 'render_social_login_buttons' ) );
+    add_action( 'woocommerce_login_form_start', array( wc_social_login()->get_frontend_instance(), 'render_social_login_buttons' ) );
+    add_action( 'woocommerce_register_form_start', array( wc_social_login()->get_frontend_instance(), 'render_social_login_buttons' ) );
+  }
+}
+add_action( 'init', 'sa_social_login_move_register_buttons' );
+
+
+function sa_extra_register_fields() { ?>
+   <p class="woocommerce-FormRow woocommerce-FormRow--wide form-row form-row-wide">
+     <label for="reg_billing_first_name"><?php _e( 'First name', 'woocommerce' ); ?></label>
+     <input type="text" class="input-text" name="billing_first_name" id="reg_billing_first_name" value="<?php if ( ! empty( $_POST['billing_first_name'] ) ) esc_attr_e( $_POST['billing_first_name'] ); ?>" />
+   </p>
+   <p class="woocommerce-FormRow woocommerce-FormRow--wide form-row form-row-wide">
+     <label for="reg_billing_last_name"><?php _e( 'Last name', 'woocommerce' ); ?></label>
+     <input type="text" class="input-text" name="billing_last_name" id="reg_billing_last_name" value="<?php if ( ! empty( $_POST['billing_last_name'] ) ) esc_attr_e( $_POST['billing_last_name'] ); ?>" />
+   </p>
+   <div class="clear"></div>
+   <?php
+ }
+ add_action( 'woocommerce_register_form_start', 'sa_extra_register_fields', 20 );
+
+
+
+ // Add the code below to your theme's functions.php file to add a confirm password field on the register form under My Accounts.
+add_filter('woocommerce_registration_errors', 'sa_registration_errors_validation', 10,3);
+function sa_registration_errors_validation($reg_errors, $sanitized_user_login, $user_email) {
+	global $woocommerce;
+	extract( $_POST );
+	if ( strcmp( $password, $password2 ) !== 0 ) {
+		return new WP_Error( 'registration-error', __( 'Passwords do not match.', 'stillactive' ) );
+	}
+	return $reg_errors;
+}
+
+
+add_action( 'woocommerce_register_form', 'sa_register_form_password_repeat' );
+function sa_register_form_password_repeat() {
+	?>
+	<p class="form-row form-row-wide">
+		<label for="reg_password2"><?php _e( 'Password Repeat', 'woocommerce' ); ?> <span class="required">*</span></label>
+		<input type="password" class="input-text" name="password2" id="reg_password2" value="" required/>
+	</p>
+	<?php
 }
