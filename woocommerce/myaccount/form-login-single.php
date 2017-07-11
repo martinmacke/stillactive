@@ -30,6 +30,55 @@ if ( ! defined( 'ABSPATH' ) ) {
 	background-size: cover;
 	background-repeat: no-repeat;
 }
+.woocommerce form.login {
+    max-width: 650px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.95);
+    border: none;
+    border-radius:10px;
+}
+.woocommerce form.login input{
+	border-radius:5px;
+}
+.woocommerce form.login h2{
+	margin:10px 0 30px 0;
+text-align: center;
+text-transform: uppercase;
+font-size: 30px;
+    color: #005678;
+}
+.woocommerce form.login h2:after {
+    width: 89px;
+    height: 5px;
+    content: '';
+    background: #46c8f5;
+    display: block;
+    margin: 0 auto;
+}
+.woocommerce form.login .wc-social-login{
+	text-align: center;
+margin: 0 0 15px 0;
+}
+.woocommerce form.login .accept-terms a{
+color: #46c8f5;
+text-transform: uppercase;
+font-weight: bold;
+}
+.woocommerce-account .page-title{
+	text-align: center;
+padding: 0;
+display: none !important;
+}
+.woocommerce form.login input[type="submit"]{
+	padding: 18px 0;
+text-transform: uppercase;
+border: none;
+background: #46c8f5;
+}
+.woocommerce form.login input[type="submit"]:hover{
+	background: #005678;
+	color: #ffffff;
+}
 </style>
 
 
@@ -39,27 +88,28 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <?php do_action( 'woocommerce_before_customer_login_form' ); ?>
 
-		<h2><?php _e( 'Login', 'woocommerce' ); ?></h2>
+
 
 		<form method="post" class="login">
+		<h2><?php _e( 'Login', 'woocommerce' ); ?></h2>
 
-			<?php do_action( 'woocommerce_login_form_start' ); ?>
 
 			<p class="woocommerce-FormRow woocommerce-FormRow--wide form-row form-row-wide">
 				<label for="username"><?php _e( 'Username or email address', 'woocommerce' ); ?> <span class="required">*</span></label>
 				<input type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="username" id="username" value="<?php if ( ! empty( $_POST['username'] ) ) echo esc_attr( $_POST['username'] ); ?>" />
 			</p>
 
-			<p class="woocommerce-LostPassword lost_password">
-				<a href="<?php echo esc_url( wp_lostpassword_url() ); ?>"><?php _e( 'Lost your password?', 'woocommerce' ); ?></a>
-			</p>
+
 
 			<p class="woocommerce-FormRow woocommerce-FormRow--wide form-row form-row-wide">
 				<label for="password"><?php _e( 'Password', 'woocommerce' ); ?> <span class="required">*</span></label>
 				<input class="woocommerce-Input woocommerce-Input--text input-text" type="password" name="password" id="password" />
 			</p>
+            <p class="woocommerce-LostPassword lost_password">
+				<a href="<?php echo esc_url( wp_lostpassword_url() ); ?>"><?php _e( 'Lost your password?', 'woocommerce' ); ?></a>
+			</p>
+			<p><?php do_action( 'woocommerce_login_form' ); ?></p>
 
-			<?php do_action( 'woocommerce_login_form' ); ?>
 
 			<p class="form-row">
 				<?php wp_nonce_field( 'woocommerce-login', 'woocommerce-login-nonce' ); ?>
@@ -68,10 +118,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<input class="woocommerce-Input woocommerce-Input--checkbox" name="rememberme" type="checkbox" id="rememberme" value="forever" /> <?php _e( 'Remember me', 'woocommerce' ); ?>
 				</label> -->
 			</p>
-
+		<?php do_action( 'woocommerce_login_form_start' ); ?>
 			<p class="accept-terms small">
 				<?php _e('By logging in and registering on our site, you agree with the', 'stillactive'); ?>
-				 <a target="_blank" href="<?php the_permalink(595); ?>"><?php _e('Terms and conditions', 'stillactive'); ?></a>.
+				 <a  target="_blank" href="<?php the_permalink(595); ?>"><?php _e('Terms and conditions', 'stillactive'); ?></a>.
 			</p>
 
 			<p class="accept-terms">

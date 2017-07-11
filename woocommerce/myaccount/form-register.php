@@ -30,6 +30,55 @@ if ( ! defined( 'ABSPATH' ) ) {
 	background-size: cover;
 	background-repeat: no-repeat;
 }
+.woocommerce form.register {
+    max-width: 650px;
+    margin: 0 auto;
+    background:rgba(255, 255, 255, 0.95);
+    border: none;
+    border-radius:10px;
+}
+.woocommerce form.register input{
+	border-radius:5px;
+}
+.woocommerce form.register h2{
+	margin:10px 0 30px 0;
+text-align: center;
+text-transform: uppercase;
+font-size: 30px;
+    color: #005678;
+}
+.woocommerce form.register h2:after {
+    width: 135px;
+    height: 5px;
+    content: '';
+    background: #46c8f5;
+    display: block;
+    margin: 0 auto;
+}
+.woocommerce form.register .wc-social-login{
+	text-align: center;
+margin: 0 0 15px 0;
+}
+.woocommerce form.register .accept-terms a{
+color: #46c8f5;
+text-transform: uppercase;
+font-weight: bold;
+}
+.woocommerce-account .page-title{
+	text-align: center;
+padding: 0;
+display: none !important;
+}
+.woocommerce form.register input[type="submit"]{
+	padding: 18px 0;
+text-transform: uppercase;
+border: none;
+background: #46c8f5;
+}
+.woocommerce form.register input[type="submit"]:hover{
+	background: #005678;
+	color: #ffffff;
+}
 </style>
 
 
@@ -43,12 +92,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 <?php if ( get_option( 'woocommerce_enable_myaccount_registration' ) === 'yes' ) : ?>
 
 <div id="customer_login">
-
-		<h2><?php _e( 'Register', 'woocommerce' ); ?></h2>
-
 		<form method="post" class="register">
+<h2><?php _e( 'Register', 'woocommerce' ); ?></h2>
 
-			<?php do_action( 'woocommerce_register_form_start' ); ?>
 
 			<?php if ( 'no' === get_option( 'woocommerce_registration_generate_username' ) ) : ?>
 
@@ -83,7 +129,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<?php wp_nonce_field( 'woocommerce-register', 'woocommerce-register-nonce' ); ?>
 				<input type="submit" class="woocommerce-Button button" name="register" value="<?php esc_attr_e( 'Register', 'woocommerce' ); ?>" />
 			</p>
-
+<?php do_action( 'woocommerce_register_form_start' ); ?>
 			<p class="accept-terms small">
 				<?php _e('By logging in and registering on our site, you agree with the', 'stillactive'); ?> <a target="_blank" href="<?php the_permalink(595); ?>"><?php _e('Terms and conditions', 'stillactive'); ?></a>.
 			</p>
