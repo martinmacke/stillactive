@@ -24,18 +24,30 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <style>
 .woocommerce-account {
-	background-image: url( '<?php echo get_template_directory_uri()?>/images/sky-people-whitespace-freedom.jpg' );
+	background-image: url( '<?php echo get_template_directory_uri()?>/images/pexels-photo-196667.jpeg' );
 	background-position: center;
 	background-attachment: fixed; /*default is scroll*/
 	background-size: cover;
 	background-repeat: no-repeat;
 }
+.woocommerce-account:before {
+    width: 100%;
+    height: 100%;
+    content: '';
+    background: rgba(255, 255, 255, 0.85);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
 .woocommerce form.register {
-    max-width: 650px;
-    margin: 0 auto;
-    background:rgba(255, 255, 255, 0.95);
-    border: none;
-    border-radius:10px;
+max-width: 300px;
+width: 100%;
+margin: 0 auto;
+background: none;
+border: none;
+border-radius: 10px;
+padding: 0;
+position: relative;
 }
 .woocommerce form.register input{
 	border-radius:5px;
@@ -43,25 +55,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 .woocommerce form.register h2{
 	margin:10px 0 30px 0;
 text-align: center;
-text-transform: uppercase;
-font-size: 30px;
-    color: #005678;
-}
-.woocommerce form.register h2:after {
-    width: 135px;
-    height: 5px;
-    content: '';
-    background: #46c8f5;
-    display: block;
-    margin: 0 auto;
+font-size: 35px;
+    color: #000000;
+		font-weight: bold;
 }
 .woocommerce form.register .wc-social-login{
 	text-align: center;
 margin: 0 0 15px 0;
 }
 .woocommerce form.register .accept-terms a{
-color: #46c8f5;
-text-transform: uppercase;
+color: #005678;
 font-weight: bold;
 }
 .woocommerce-account .page-title{
@@ -70,13 +73,14 @@ padding: 0;
 display: none !important;
 }
 .woocommerce form.register input[type="submit"]{
-	padding: 18px 0;
-text-transform: uppercase;
-border: none;
-background: #46c8f5;
+	padding: 14px 0;
+	text-transform: uppercase;
+	border: none;
+	background: #005678;
+	border-radius: 50px;
 }
 .woocommerce form.register input[type="submit"]:hover{
-	background: #005678;
+	background: #46c8f5;
 	color: #ffffff;
 }
 </style>
@@ -95,7 +99,7 @@ background: #46c8f5;
 		<form method="post" class="register">
 <h2><?php _e( 'Register', 'woocommerce' ); ?></h2>
 
-
+<?php do_action( 'woocommerce_register_form_start' ); ?>
 			<?php if ( 'no' === get_option( 'woocommerce_registration_generate_username' ) ) : ?>
 
 				<p class="woocommerce-FormRow woocommerce-FormRow--wide form-row form-row-wide">
@@ -129,7 +133,7 @@ background: #46c8f5;
 				<?php wp_nonce_field( 'woocommerce-register', 'woocommerce-register-nonce' ); ?>
 				<input type="submit" class="woocommerce-Button button" name="register" value="<?php esc_attr_e( 'Register', 'woocommerce' ); ?>" />
 			</p>
-<?php do_action( 'woocommerce_register_form_start' ); ?>
+
 			<p class="accept-terms small">
 				<?php _e('By logging in and registering on our site, you agree with the', 'stillactive'); ?> <a target="_blank" href="<?php the_permalink(595); ?>"><?php _e('Terms and conditions', 'stillactive'); ?></a>.
 			</p>
