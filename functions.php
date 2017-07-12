@@ -607,6 +607,9 @@ add_action( 'init', 'sa_social_login_move_register_buttons' );
 
 
 function sa_extra_register_fields() { ?>
+	
+	<h4 class="selection-tag">OR</h4>
+
    <p class="woocommerce-FormRow woocommerce-FormRow--wide form-row form-row-wide">
      <label for="reg_billing_first_name"><?php _e( 'First name', 'woocommerce' ); ?></label>
      <input type="text" class="input-text" name="billing_first_name" id="reg_billing_first_name" value="<?php if ( ! empty( $_POST['billing_first_name'] ) ) esc_attr_e( $_POST['billing_first_name'] ); ?>" />

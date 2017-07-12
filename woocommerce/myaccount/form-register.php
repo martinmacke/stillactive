@@ -83,6 +83,24 @@ display: none !important;
 	background: #46c8f5;
 	color: #ffffff;
 }
+
+.selection-tag:before, .selection-tag:after {
+    height: 1px;
+    background: #d2d2d2;
+    content: '';
+    width: 50%;
+    margin: 0 8px;
+}
+.selection-tag {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    line-height: 1px;
+}
+#customer_login .register .wc-social-login:last-child {
+    display: none;
+}
+
 </style>
 
 
@@ -100,6 +118,7 @@ display: none !important;
 <h2><?php _e( 'Register', 'woocommerce' ); ?></h2>
 
 <?php do_action( 'woocommerce_register_form_start' ); ?>
+
 			<?php if ( 'no' === get_option( 'woocommerce_registration_generate_username' ) ) : ?>
 
 				<p class="woocommerce-FormRow woocommerce-FormRow--wide form-row form-row-wide">

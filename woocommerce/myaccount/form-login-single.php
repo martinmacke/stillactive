@@ -83,6 +83,19 @@ display: none !important;
 	background: #46c8f5;
 	color: #ffffff;
 }
+.selection-tag:before, .selection-tag:after {
+    height: 1px;
+    background: #d2d2d2;
+    content: '';
+    width: 50%;
+    margin: 0 8px;
+}
+.selection-tag {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    line-height: 1px;
+}
 </style>
 
 
@@ -98,6 +111,8 @@ display: none !important;
 		<h2><?php _e( 'Login', 'woocommerce' ); ?></h2>
 
 			<?php do_action( 'woocommerce_login_form_start' ); ?>
+
+			<h4 class="selection-tag">OR</h4>
 
 			<p class="woocommerce-FormRow woocommerce-FormRow--wide form-row form-row-wide">
 				<label for="username"><?php _e( 'Username or email address', 'woocommerce' ); ?> <span class="required">*</span></label>
@@ -134,7 +149,7 @@ display: none !important;
 
 			<p class="accept-terms">
 				<?php _e('Don\' have an account yet?', 'stillactive'); ?>
-				 <a target="_blank" href="<?php echo get_permalink( get_option('woocommerce_myaccount_page_id') ); ?>?action=register"><?php _e('Sign up', 'stillactive'); ?></a>.
+				 <a href="<?php echo get_permalink( get_option('woocommerce_myaccount_page_id') ); ?>?action=register"><?php _e('Sign up', 'stillactive'); ?></a>.
 			</p>
 
 			<?php do_action( 'woocommerce_login_form_end' ); ?>
