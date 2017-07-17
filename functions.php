@@ -646,3 +646,14 @@ function sa_register_form_password_repeat() {
 	</p>
 	<?php
 }
+
+
+// $term_args = apply_filters( 'wcpv_registration_term_args', array(
+	// 'description' => 'aasasasa cvcvcvc hjhjhjhj kjkjkjk ssdsdsdsds',
+// ) );
+// wp_update_term( 20, WC_PRODUCT_VENDORS_TAXONOMY, $term_args );
+
+// global $wp_filter;
+// echo "<pre>";
+// print_r($wp_filter['edited_term']);
+// echo "</pre>";

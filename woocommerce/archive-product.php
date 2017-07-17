@@ -96,7 +96,15 @@ get_header( 'shop' ); ?>
 							?>
 								<h1 class="page-title sa_v_title"><?php woocommerce_page_title(); ?></h1>
 								<!--<div class="lead"><?php echo get_field('vendor_description', $vendor); ?></div>-->
-								<div class="lead"><?php echo category_description(); ?></div>
+								<div class="lead">
+									<?php
+										if( ! empty( get_term_meta($term_id, 'vendor_description', true) ) ){
+											echo get_term_meta($term_id, 'vendor_description', true);
+										}else{
+											echo category_description();
+										}
+									?>
+								</div>
 							<?php endif; ?>
 							
 							<?php
