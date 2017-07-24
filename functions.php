@@ -405,7 +405,7 @@ add_action( 'admin_print_scripts-post-new.php', 'add_cancel_booking_script', 11 
 add_action( 'admin_print_scripts-post.php', 'add_cancel_booking_script', 11 );
 function add_cancel_booking_script() {
 	global $post_type;
-	if( 'product' == $post_type ){
+	if( 'product' == $post_type && !current_user_can( 'manage_woocommerce' ) ){
 		wp_enqueue_script(  'cancel_booking', get_stylesheet_directory_uri().'/js/cancel_booking.js' );
 	}
 }
