@@ -17,6 +17,44 @@
  * @package     WooCommerce/Templates
  * @version     2.6.0
  */
+
+/*
+	Cancel booking Popup
+*/
+
+function booking_cancelled_modal_script(){
+?>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#cancel-booking-popup").modal('show');
+	});
+</script>
+    <div id="cancel-booking-popup" class="modal fade still_active_popup" style="top:35px; background: #ffffff; opacity: 0.9;">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				</div>
+				<div class="modal-body">
+				   <center>
+					   <h2><?php _e('Your booking was cancelled successfully.', 'stillactive'); ?></h2>
+					   <p><?php _e('The credit card you have used to make the payment', 'stillactive'); ?> <br /> <?php _e('will be credited with the respective amount within 14 days.', 'stillactive'); ?></p>
+				   </center>
+				</div>
+				<div class="modal-footer">
+					<center>
+						<button type="button" class="btn btn-primary" data-dismiss="modal"><?php _e('Ok', 'stillactive'); ?></button>
+					</center>
+				</div>
+			</div>
+		</div>
+	</div>
+<?php
+}
+
+if ( isset( $_GET['cancel_booking'] ) && 'true' === $_GET['cancel_booking'] ){
+	booking_cancelled_modal_script();
+}
 ?>
 
 <p class="lead"><?php _e('Hello', 'stillactive'); echo " " . $current_user->first_name; ?>,</p>

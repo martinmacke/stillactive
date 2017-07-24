@@ -1653,7 +1653,7 @@ body .tooltip-inner {
 	-webkit-transition: all 0.2s ease-out;
 	transition: all 0.2s ease-out;
 }
-#comment-popup .btn {
+body .still_active_popup .btn {
 	width: 200px;
 	padding: 0;
 	display: inline-block;
@@ -1661,11 +1661,11 @@ body .tooltip-inner {
 	margin: 0 0 15px 0;
 	line-height: 50px;
 }
-#comment-popup .modal-footer, #comment-popup .modal-header {
+body .still_active_popup .modal-footer, body .still_active_popup .modal-header {
 	padding: 0;
 	border: none;
 }
-#comment-popup .modal-header .close {
+body .still_active_popup .modal-header .close {
 	margin: 15px 15px 0 0;
 	background: none;
 	color: #005678;
@@ -1673,19 +1673,19 @@ body .tooltip-inner {
 	line-height: 37px;
 	padding: 0 !important;
 }
-#comment-popup .modal-dialog {
+body .still_active_popup .modal-dialog {
 	width: 100%;
 }
-#comment-popup .modal-content {
+body .still_active_popup .modal-content {
 	background: none;
 	box-shadow: none;
 	border: none;
 }
-#comment-popup .modal-content h1 {
+body .still_active_popup .modal-content h1 {
 	margin: 5% 0 15px 0;
 	font-size: 30px;
 }
-#comment-popup .modal-content p {
+body .still_active_popup .modal-content p {
 	font-size: 25px;
 }
 .single-product .modal-backdrop {

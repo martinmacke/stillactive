@@ -526,7 +526,7 @@ function review_modal_script(){
 		$("#comment-popup").modal('show');
 	});
 </script>
-    <div id="comment-popup" class="modal fade">
+    <div id="comment-popup" class="modal fade still_active_popup">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
