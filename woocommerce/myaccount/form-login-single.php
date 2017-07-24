@@ -112,7 +112,7 @@ display: none !important;
 
 			<?php do_action( 'woocommerce_login_form_start' ); ?>
 
-			<h4 class="selection-tag">OR</h4>
+			<h4 class="selection-tag"><?php _e( 'OR', 'woocommerce' ); ?></h4>
 
 			<p class="woocommerce-FormRow woocommerce-FormRow--wide form-row form-row-wide">
 				<label for="username"><?php _e( 'Username or email address', 'woocommerce' ); ?> <span class="required">*</span></label>
