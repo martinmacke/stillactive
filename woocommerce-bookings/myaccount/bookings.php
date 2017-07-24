@@ -45,13 +45,14 @@ if ( ! empty( $tables ) ) :
 				       if ( $booking->get_product() != '' ) :
 				?>
 				<?php
-					/* WPML Fix - do not show duplicate bookings in different languages */
+					/* WPML Fix - do not show duplicate bookings in different languages
 					$curr_lang = ICL_LANGUAGE_CODE;
 					$booking_language_information = apply_filters( 'wpml_post_language_details', NULL, $booking->get_product()->get_id() ) ;
 					$booking_lang = $booking_language_information['language_code'];
-					/* End fix */
+					
 					
 					 if ( $curr_lang == $booking_lang) :
+					 End fix */
 				?>
 					<tr>
 						<td class="booking-id"><?php echo esc_html( $booking->get_id() ); ?></td>
@@ -78,7 +79,8 @@ if ( ! empty( $tables ) ) :
 							<?php endif; ?>
 						</td>
 					</tr>
-				<?php endif; endif;
+				<?php /* endif; */ ?>
+				<?php endif;
 				endforeach; ?>
 			</tbody>
 		</table>
