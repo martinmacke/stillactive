@@ -1699,3 +1699,79 @@ body .still_active_popup .modal-content p {
 .woocommerce-ordering .orderby{
 	min-width: 220px;
 }
+
+h2.print_order_h {
+    float:left;
+}
+button.print_order {
+    float: right;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    background: #005678 ;
+    color: #ffffff ;
+    border-radius: 3px;
+    width: 80px;
+    border: none;
+    padding: 4px;
+}
+
+.order_item_address {
+    margin: 0;
+	font-weight:normal;
+}
+@media print {
+	header, footer, #nav, .woocommerce-info, iframe, #tawkchat-minified-wrapper #short-message, #search-popup, #myModal {
+		display: none !important;
+		visibility:hidden !important;
+	}
+	#siteheader + .container, .bgimage + .container{
+		margin-top:0;
+	}
+}
+
+.sa_mobile_search.sa_mobile_menu.user_login_menu .fa.fa-search{
+	font-size: 30px;
+    padding-top: 5px;
+}
+
+.sa_mobile_search.sa_mobile_menu.user_login_menu .sa_menu_text{
+	line-height: 25px;
+}
+
+.search_container{
+	margin-top: 130px;
+}
+.search_container .search_query{
+	color:#33CCFF;
+}
+
+.popup_search_div{
+	max-width: 550px;
+    margin: 10% auto 0;
+    width: 100%;
+    position: relative;
+}
+
+.popup_search_div input{
+	border: none;
+    border-bottom: 2px solid #204d74;
+	outline: 0;
+}
+
+.popup_search_div .fa.fa-search{
+	position: absolute;
+    background: none;
+    border: none;
+    top: 20px;
+    right: 3px;
+    padding: 0;
+    outline: 0;
+}
+.menu_except_search{
+	float:right;
+}
+@media all and (max-width:350px) {
+	body.logged-in .sa_mobile_search {
+		margin:0 !important;
+	}
+}

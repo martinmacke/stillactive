@@ -657,3 +657,15 @@ function sa_register_form_password_repeat() {
 // echo "<pre>";
 // print_r($wp_filter['edited_term']);
 // echo "</pre>";
+
+
+/*
+Only search products
+*/
+function searchfilter($query) {
+	if ( $query->is_search && !is_admin() ) {
+		$query->set('post_type', array('product'));
+	}
+	return $query;
+}
+add_filter('pre_get_posts','searchfilter');

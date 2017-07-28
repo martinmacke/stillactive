@@ -47,7 +47,31 @@
          </div>
 
     </div>
-
+    <div id="search-popup" class="modal fade still_active_popup" style="top:35px; background: #ffffff; opacity: 0.9;">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<form action="<?php echo home_url(); ?>">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					</div>
+					<div class="modal-body">
+					   <center>
+							<div class="popup_search_div">
+								<input class="" required="required" name="s" id="s" value="<?php echo get_search_query(); ?>" placeholder="<?php _e('What are you looking for?','stillactive'); ?>"/>
+								<i class="fa fa-search" aria-hidden="true"></i>
+							</div>
+					   </center>
+					</div>
+					<div class="modal-footer">
+						<center>
+							<button type="submit" class="btn btn-primary"><?php _e('Search', 'stillactive'); ?></button>
+						</center>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	
 <?php wp_footer(); ?>
 
 <script>
