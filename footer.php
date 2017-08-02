@@ -47,7 +47,7 @@
          </div>
 
     </div>
-    <div id="search-popup" class="modal fade still_active_popup" style="top:35px; background: #ffffff; opacity: 0.9;">
+    <div id="search-popup" class="modal fade still_active_popup still_active_search_popup">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<form action="<?php echo home_url(); ?>">

@@ -1653,6 +1653,12 @@ body .tooltip-inner {
 	-webkit-transition: all 0.2s ease-out;
 	transition: all 0.2s ease-out;
 }
+.still_active_search_popup{
+	background: rgba(255, 255, 255, 0.9);
+	display: block;
+	padding-right: 17px;
+	display:none;
+}
 body .still_active_popup .btn {
 	width: 200px;
 	padding: 0;
@@ -1666,12 +1672,14 @@ body .still_active_popup .modal-footer, body .still_active_popup .modal-header {
 	border: none;
 }
 body .still_active_popup .modal-header .close {
-	margin: 15px 15px 0 0;
-	background: none;
-	color: #005678;
-	font-size: 60px;
-	line-height: 37px;
-	padding: 0 !important;
+	margin: 0 15px 0 0;
+    background: none;
+    color: #005678;
+    font-size: 60px;
+    line-height: 25px;
+    position: relative;
+    padding: 0 !important;
+    z-index: 200;
 }
 body .still_active_popup .modal-dialog {
 	width: 100%;
@@ -1747,12 +1755,13 @@ button.print_order {
 
 .popup_search_div{
 	max-width: 550px;
-    margin: 10% auto 0;
+    margin: 12% auto 0;
     width: 100%;
     position: relative;
 }
 
 .popup_search_div input{
+	background: none;
 	border: none;
     border-bottom: 2px solid #204d74;
 	outline: 0;
