@@ -1681,6 +1681,9 @@ body .still_active_popup .modal-header .close {
     padding: 0 !important;
     z-index: 200;
 }
+body .modal-header .close{
+	height: 40px !important;
+}
 body .still_active_popup .modal-dialog {
 	width: 100%;
 }
@@ -1783,4 +1786,10 @@ button.print_order {
 	body.logged-in .sa_mobile_search {
 		margin:0 !important;
 	}
+}
+
+@media all and (max-width:780px){
+body .modal-header .close{
+	margin: 35px 15px 0 0 !important;
+}
 }

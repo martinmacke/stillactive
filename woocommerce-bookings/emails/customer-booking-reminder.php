@@ -40,7 +40,7 @@ do_action( 'woocommerce_email_header', $email_heading );
 $product_id	= $booking->get_product_id();
 
 // we can get vendor id from this function
-// $term = wp_get_post_terms( $product_id, WC_PRODUCT_VENDORS_TAXONOMY );
+// $vendor_data = wp_get_post_terms( $product_id, WC_PRODUCT_VENDORS_TAXONOMY );
 
 
 if ( $booking->get_order() ) : ?>
