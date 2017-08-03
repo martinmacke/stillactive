@@ -1788,8 +1788,11 @@ button.print_order {
 	}
 }
 
-@media all and (max-width:780px){
-body .modal-header .close{
-	margin: 35px 15px 0 0 !important;
+@media all and (max-width:780px) {
+	body .modal-header .close{
+		margin: 35px 15px 0 0 !important;
+	}
 }
+tr.cart-subtotal, .wc-cart-shipping-notice {
+	display: none;
 }

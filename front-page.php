@@ -53,7 +53,7 @@ endforeach;
 </div>
 
 <?php if(!is_user_logged_in()): ?>
-<p class="text-center"><a href="<?php echo get_permalink( get_option('woocommerce_myaccount_page_id') ); ?>" class="btn btn-lg btn-primary"><?php _e('Join Now!', 'stillactive'); ?></a></p>
+<p class="text-center"><a href="<?php echo get_permalink( get_option('woocommerce_myaccount_page_id') ); ?>?action=register" class="btn btn-lg btn-primary"><?php _e('Join Now!', 'stillactive'); ?></a></p>
 <?php else: ?>
 <p class="text-center">
 <a href="<?php echo $shop_page_url ;?>" class="btn btn-lg btn-primary"><?php _e('Browse all activities', 'stillactive'); ?></a>
