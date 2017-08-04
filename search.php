@@ -9,7 +9,7 @@ $search_query = get_search_query();
 		
 		<div class="row">
 			<div class="col-xs-12">
-				<h1><?php _e('Search results for ','stillactive'); echo '<span class="search_query">' . $search_query. "</span>"; ?></h1>
+				<h1><?php _e('Search results for','stillactive'); echo ' <span class="search_query">' . $search_query. "</span>"; ?></h1>
 			</div>
 		</div>
 		
