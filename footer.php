@@ -92,21 +92,6 @@ jQuery(document).ready(function(){
 			jQuery(this).next().toggle();
 		});
 	}
-    /* Show persons and calendar when see dates button is clicked */
-	
-	if( jQuery(".sa_see_dates").length > 0 ){
-		
-		jQuery('.single.single-product #wc-bookings-booking-form, .single.single-product .wc-bookings-booking-form-button').hide();
-		
-		jQuery(".sa_see_dates").click( function(){
-			jQuery("#wc-bookings-booking-form").show();
-			jQuery(".wc-bookings-booking-form-button").show();
-			scroll_if_anchor("#wc-bookings-booking-form");
-		});
-		
-		if( $("li.reviews_tab a").length > 0 ){
-			$("li.reviews_tab a").click();
-		}
 		
 		if( $(".sa_product_comments").length > 0 ){
 			$(".sa_product_comments li.comment.byuser").each( function(i,val){

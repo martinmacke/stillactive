@@ -886,6 +886,7 @@ a.vc_btn3-style-custom:hover {
 .wc-bookings-booking-form {
 	border: none;
 	padding: 0;
+	margin-top: 40px;
 }
 .wc-bookings-date-picker .ui-datepicker-header, .wc-bookings-date-picker .ui-datepicker .ui-datepicker-next, .wc-bookings-date-picker .ui-datepicker .ui-datepicker-prev {
 	background: #005678;
@@ -1235,10 +1236,9 @@ body.woocommerce .sa_address_value small {
 }
 body.woocommerce .sa_save_later_div {
 	display: inline-block;
-	padding: 15px 40px;
 	font-size: 22px;
 	font-weight: 600;
-	margin: 15px 0 0 0;
+	margin: 0;
 }
 body.woocommerce .sa_save_later_div a.sa_save_later:hover, body.woocommerce .sa_save_later_div a.sa_save_later:focus {
 	color: #005678;
@@ -1795,4 +1795,10 @@ button.print_order {
 }
 tr.cart-subtotal, .wc-cart-shipping-notice {
 	display: none;
+}
+.wc-bookings-date-picker > legend {
+	display: none;
+}
+#tab-additional_information {
+	display: none !important;
 }
