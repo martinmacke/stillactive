@@ -1305,7 +1305,7 @@ span.sa_bookings_count {
 	font-weight: normal;
 }
 .sa_vendor_logo_div {
-	width: 300px;
+	width: 100%;
 	margin: 0 auto;
 	text-align: center;
 }
@@ -1318,6 +1318,10 @@ span.sa_bookings_count {
 }
 .sa_vendor_logo_div .sa_vendor_logo {
 	width: 150px;
+}
+.sa_vendor_logo_div .lead {
+	margin-top: 20px;
+	margin-bottom: 40px;
 }
 .woocommerce .star-rating.sa_v_ratings_stars {
 	float: none;
