@@ -7,6 +7,67 @@
  Version:      1.0.0
  Tags:         clean, responsive, white
 */
+
+@font-face {
+	font-family: 'brandon grotesque';
+	src: url('font/BrandonGrotesque-Light.eot');
+	src: url('font/BrandonGrotesque-Light.eot?#iefix') format('embedded-opentype'),
+		url('font/BrandonGrotesque-Light.woff') format('woff'),
+		url('font/BrandonGrotesque-Light.ttf') format('truetype');
+	font-weight: 300;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'brandon grotesque';
+	src: url('font/BrandonGrotesque-BoldItalic.eot');
+	src: url('font/BrandonGrotesque-BoldItalic.eot?#iefix') format('embedded-opentype'),
+		url('font/BrandonGrotesque-BoldItalic.woff') format('woff'),
+		url('font/BrandonGrotesque-BoldItalic.ttf') format('truetype');
+	font-weight: bold;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'brandon grotesque';
+	src: url('font/BrandonGrotesque-LightItalic.eot');
+	src: url('font/BrandonGrotesque-LightItalic.eot?#iefix') format('embedded-opentype'),
+		url('font/BrandonGrotesque-LightItalic.woff') format('woff'),
+		url('font/BrandonGrotesque-LightItalic.ttf') format('truetype');
+	font-weight: 300;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'brandon grotesque';
+	src: url('font/BrandonGrotesque-RegularItalic.eot');
+	src: url('font/BrandonGrotesque-RegularItalic.eot?#iefix') format('embedded-opentype'),
+		url('font/BrandonGrotesque-RegularItalic.woff') format('woff'),
+		url('font/BrandonGrotesque-RegularItalic.ttf') format('truetype');
+	font-weight: normal;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'brandon grotesque';
+	src: url('font/BrandonGrotesque-Bold.eot');
+	src: url('font/BrandonGrotesque-Bold.eot?#iefix') format('embedded-opentype'),
+		url('font/BrandonGrotesque-Bold.woff') format('woff'),
+		url('font/BrandonGrotesque-Bold.ttf') format('truetype');
+	font-weight: bold;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'brandon grotesque';
+	src: url('font/BrandonGrotesque-Regular.eot');
+	src: url('font/BrandonGrotesque-Regular.eot?#iefix') format('embedded-opentype'),
+		url('font/BrandonGrotesque-Regular.woff') format('woff'),
+		url('font/BrandonGrotesque-Regular.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
 .yellow-gradient {
 	background: #ffb347;
 	/* fallback for old browsers */
@@ -21,9 +82,6 @@
 	width: 1270px;
 	max-width: 100%;
 }
-#siteheader + .container, .bgimage + .container {
-	margin-top: 130px;
-}
 html {
 	position: relative;
 	min-height: 100%;
@@ -36,11 +94,12 @@ html {
 	max-width: 100%;
 }
 body {
-	font-family: "brandon-grotesque", Helvetica, sans;
+	font-family: "brandon grotesque", Helvetica, sans;
 	text-rendering: optimizeLegibility;
 	background: white;
 	color: #333333;
 	font-size: 20px;
+	margin-top: 130px;
 }
 .flex {
 	display: -webkit-box;
@@ -278,6 +337,7 @@ span.tab {
 #what {
 	padding-top: 120px;
 	position: relative;
+	margin-top: -130px;
 }
 #what p.lead {
 	padding-left: 10vw;
@@ -1735,9 +1795,9 @@ button.print_order {
 	font-weight:normal;
 }
 @media print {
-	header, footer, #nav, .woocommerce-info, iframe, #tawkchat-minified-wrapper #short-message, #search-popup, #myModal {
+	header, footer, #nav, .woocommerce-info, iframe, div[id*='tawkchat'], #search-popup, #myModal {
 		display: none !important;
-		visibility:hidden !important;
+		visibility: hidden !important;
 	}
 	#siteheader + .container, .bgimage + .container{
 		margin-top:0;

@@ -78,20 +78,6 @@ endforeach;
 </div>
 </section>
 
-<section id="indiegogo">
-	<div class="container">
-		<div class="col-sm-8 col-xs-12 desc">
-			<h1><span class="hidden-xs"><?php _e('Support us on', 'stillactive'); ?></span><img src="<?php bloginfo('template_url'); ?>/images/logo-indiegogo.svg" alt="IndieGoGo" width="180" height="94"></h1>
-			<p class="lead"><?php _e('Our crowdfunding campaign is in full speed. Help us turn our vision into reality, support Still Active today and get 20% off our gift cards!', 'stillactive'); ?></p>
-			<a href="https://www.indiegogo.com/projects/still-active-the-activity-concierge-for-60-up-fitness-community#/" target="_blank" class="btn btn-primary btn-lg"><?php _e('Support Still Active', 'stillactive'); ?></a>
-		</div>
-		<div class="col-sm-4 col-xs-12 text-center">
-			<iframe src="https://www.indiegogo.com/project/still-active-the-activity-concierge-for-60-up-fitness-community/embedded" width="222px" height="445px" frameborder="0" scrolling="no"></iframe>
-		</div>
-	</div>
-</section>
-
-
 <section id="about" class="container">
 <div class="sa_center_row">
 	<div class="col-sm-6 col-xs-12">

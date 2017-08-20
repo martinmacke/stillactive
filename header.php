@@ -8,23 +8,10 @@
 
 <meta name="author" content="aboutblank - creative web solutions" />
 
-<script src="https://use.typekit.net/wqp3wah.js"></script>
-<script>try{Typekit.load({ async: false });}catch(e){}</script>
-
 <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" type="text/css" media="screen" />
-<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 
-<!-- Hotjar Tracking Code for beta.stillactive.se -->
-<script>
-    (function(h,o,t,j,a,r){
-        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-        h._hjSettings={hjid:525379,hjsv:5};
-        a=o.getElementsByTagName('head')[0];
-        r=o.createElement('script');r.async=1;
-        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-        a.appendChild(r);
-    })(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');
-</script>
+
+
 
 <?php wp_head(); ?>
 </head>
