@@ -3,7 +3,7 @@
 <div class="container category">
 
 <div class="col-xs-12">
-<h1 class="page-title text-center"><?php _e('Blog', 'stillactive'); ?></h1>
+<h1 class="page-title text-center"><?php _e('Welcome to the Still Active Blog!', 'stillactive'); ?></h1>
 <ul class="subnav">
 <?php
 	$args = array('hide_empty' => 0, 'depth' => 1, 'title_li' => '', 'show_option_all' => 'All');
@@ -17,13 +17,17 @@
 <?php if ( have_posts() ) : ?>
 
 <div class="container">
-<div class="masonry">
+<div class="flexposts">
 
 <?php while ( have_posts() ) : the_post(); ?>
 
 <?php get_template_part('inc/list-posts'); ?>
 
 <?php endwhile; ?>
+
+<div class="col-xs-12">
+<?php the_posts_pagination(); ?>
+</div>
 
 </div>
 </div>

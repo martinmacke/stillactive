@@ -18,13 +18,17 @@ $curauth = (isset($_GET['author_name'])) ? get_user_by('slug', $author_name) : g
 <?php if ( have_posts() ) : ?>
 
 <div class="container">
-<div class="masonry">
+<div class="flexposts">
 
 <?php while ( have_posts() ) : the_post(); ?>
 
 <?php get_template_part('inc/list-posts'); ?>
 
 <?php endwhile; ?>
+
+<div class="col-xs-12">
+<?php the_posts_pagination(); ?>
+</div>
 
 </div>
 </div>

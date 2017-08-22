@@ -10,9 +10,6 @@
 
 <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" type="text/css" media="screen" />
 
-
-
-
 <?php wp_head(); ?>
 </head>
 
@@ -76,6 +73,18 @@ $my_home_url = apply_filters( 'wpml_home_url', get_option( 'home' ) );
 				wp_nav_menu( array( 'theme_location' => 'main-menu', 'menu_id' => 'main_menu_mobile', 'container' => 'div', 'menu_class' => 'sa_ul_mobile_menu nav navbar-nav', 'container_id' => 'sa_mobile_menu_div', 'container_class' => 'sa_mobile_menu_nav collapse', 'fallback_cb' => false) );
 			?>
 		</div>
+		
+		<?php if(current_user_can('install_plugins')): ?>
+		<?php if(is_archive() || is_category() || is_home() || is_single()): ?>
+		<ul class="subnav">
+		<?php
+			$args = array('hide_empty' => 0, 'depth' => 1, 'title_li' => '', 'show_option_all' => 'All');
+			wp_list_categories($args);	
+		?>
+		</ul>
+		<?php endif; ?>
+		<?php endif; ?>
+		
 		<a class="sa_mobile_search sa_mobile_menu user_login_menu" data-toggle="modal" href="#search-popup">
 			<i class="fa fa-search" aria-hidden="true"></i>
 			<div class='sa_menu_text'><?php _e('Search', 'stillactive'); ?></div>

@@ -240,8 +240,20 @@ span.tab {
 	-o-transition: all 0.5s ease-in-out;
 	transition: all 0.5s ease-in-out;
 }
+#siteheader ul.subnav {
+	opacity: 0;
+	visibility: hidden;
+	-webkit-transition: all 0.5s ease-in-out;
+	-moz-transition: all 0.5s ease-in-out;
+	-o-transition: all 0.5s ease-in-out;
+	transition: all 0.5s ease-in-out;
+}
 #siteheader.scroll {
 	background: white;
+}
+#siteheader.scroll ul.subnav {
+	opacity: 1;
+	visibility: visible;
 }
 .admin-bar #siteheader {
 	top: 32px;
@@ -695,13 +707,36 @@ ul.woocommerce-thankyou-order-details {
 	margin-bottom: 0;
 }
 /* Blog */
+body.category, body.blog {
+	margin-top: 70px;
+}
+body.category #siteheader nav, body.blog #siteheader nav, body.single #siteheader nav {
+	display: none;
+}
+.flexposts {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	    -ms-flex-flow: row wrap;
+	        flex-flow: row wrap;
+}
 .card {
 	padding-top: 22px;
 	padding-bottom: 22px;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	    -ms-flex-flow: column;
+	        flex-flow: column;
 }
 .category ul.subnav {
 	text-align: center;
 	list-style: none;
+	padding-left: 0;
 }
 .category ul.subnav li {
 	display: inline;
@@ -718,8 +753,23 @@ ul.woocommerce-thankyou-order-details {
 .card .alt-title + h2 {
 	margin-top: 11px;
 }
+.card a.btn {
+	margin-top: auto;
+	-ms-flex-item-align: start;
+	    align-self: flex-start;
+}
 .date {
 	margin-right: 22px;
+}
+.pagination .page-numbers {
+	display: inline-block;
+	background: whitesmoke;
+	padding: 8px 16px;
+	border-radius: 2px;
+}
+.pagination .page-numbers.current {
+	background: #33ccff;
+	color: white;
 }
 /* Hide Order Again button from Purchase confirmation screen */
 p.order-again {

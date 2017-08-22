@@ -198,7 +198,12 @@ function remove_note_vendor(){
     }
 }
 add_action('admin_menu','remove_note_vendor','999');
-
+/*add custom font*/
+function add_typekit(){
+    echo '<script src="https://use.typekit.net/wqp3wah.js"></script>';
+    echo '<script>try{Typekit.load({ async: true });}catch(e){}</script>';
+}
+add_action('admin_head', 'add_typekit');
 /*set custom dashboard title*/
 function custom_dashboard_title(){
     if(get_user_group()=='vendor'){
