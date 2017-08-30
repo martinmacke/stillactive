@@ -74,13 +74,12 @@ $my_home_url = apply_filters( 'wpml_home_url', get_option( 'home' ) );
 			?>
 		</div>
 		
-		<?php if( (is_archive() && !is_product_category()) || (is_category() && !is_product_category()) || (is_single() && !is_product()) ):?>
+		<ul class="blognav">
 		<?php
 			$args = array('hide_empty' => 0, 'depth' => 1, 'title_li' => '', 'show_option_all' => 'All');
 			wp_list_categories($args);	
 		?>
 		</ul>
-		<?php endif; ?>
 		
 		<a class="sa_mobile_search sa_mobile_menu user_login_menu" data-toggle="modal" href="#search-popup">
 			<i class="fa fa-search" aria-hidden="true"></i>

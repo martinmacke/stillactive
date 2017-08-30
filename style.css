@@ -241,7 +241,7 @@ span.tab {
 	-o-transition: all 0.5s ease-in-out;
 	transition: all 0.5s ease-in-out;
 }
-#siteheader ul.subnav {
+#siteheader ul.blognav {
 	opacity: 0;
 	visibility: hidden;
 	-webkit-transition: all 0.5s ease-in-out;
@@ -252,7 +252,7 @@ span.tab {
 #siteheader.scroll {
 	background: white;
 }
-#siteheader.scroll ul.subnav {
+#siteheader.scroll ul.blognav {
 	opacity: 1;
 	visibility: visible;
 }
@@ -710,6 +710,9 @@ ul.woocommerce-thankyou-order-details {
 /* Blog */
 body.category, body.blog {
 	margin-top: 70px;
+}
+body.home #siteheader .blognav, body.page #siteheader .blognav, body.woocommerce #siteheader .blognav, body.post-type-archive-product #siteheader .blognav, body.tax-product_cat #siteheader .blognav, body.single-product #siteheader .blognav, body.search #siteheader .blognav {
+	display: none;
 }
 body.category #siteheader nav, body.blog #siteheader nav, body.single:not(.single-product) #siteheader nav {
 	display: none;
