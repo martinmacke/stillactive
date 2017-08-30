@@ -1,6 +1,6 @@
 /*
  Theme Name:   Still Active
- Theme URI:    
+ Theme URI:
  Description:  Wordpress theme by aboutblank
  Author:       Martin Macke - aboutblank - creative solutions
  Author URI:   http://www.aboutblank.cz
@@ -140,6 +140,7 @@ h1.page-title {
 }
 .lead {
 	font-size: 150%;
+	font-weight: normal;
 }
 .bigger {
 	font-size: 125%;
@@ -710,7 +711,7 @@ ul.woocommerce-thankyou-order-details {
 body.category, body.blog {
 	margin-top: 70px;
 }
-body.category #siteheader nav, body.blog #siteheader nav, body.single #siteheader nav {
+body.category #siteheader nav, body.blog #siteheader nav, body.single:not(.single-product) #siteheader nav {
 	display: none;
 }
 .flexposts {
@@ -1915,4 +1916,115 @@ tr.cart-subtotal, .wc-cart-shipping-notice {
 }
 #tab-additional_information {
 	display: none !important;
+}
+
+.icon-add-friends{
+	background: url('images/icons/icon-add-friends.svg') no-repeat center center;
+	background-size: 60%;
+	height: 60px;
+	width: 60px;
+	display: inline-block;
+	border: 3px solid #33ccff;
+	border-radius: 50px;
+}
+
+.icon-coupon{
+	background: url('images/icons/icon-coupon.svg') no-repeat center center;
+	background-size: 60%;
+	height: 60px;
+	width: 60px;
+	display: inline-block;
+	border: 3px solid #33ccff;
+	border-radius: 50px;
+}
+.sa-refer-friend table tr{
+	border-bottom: 1px solid #F0F0F0;
+}
+
+#raf-message.woocommerce-message {
+    border: 3px solid #33ccff;
+    border-radius: 15px;
+    padding: 20px 20px !important;
+    margin: 10px 0 15px 0 !important;
+    display: inline-block;
+    width: 100%;
+		color: #000;
+    font-size: 22px;
+}
+
+#raf-message.woocommerce-message:before {
+	display: none;
+}
+
+form.wcpv-shortcode-registration-form input,
+form.wcpv-shortcode-registration-form textarea {
+  border-radius: 5px;
+  height: auto;
+  padding: 15px 15px;
+  border-color: #828282;
+}
+form.wcpv-shortcode-registration-form label{
+	text-align: left;
+}
+form.wcpv-shortcode-registration-form input[type="submit"]{
+	font-size: 23px !important;
+}
+form.wcpv-shortcode-registration-form textarea {
+	height: 200px;
+}
+.wpb_wrapper h2.form-heading {
+    margin:30px 0 !important;
+    font-size: 18px;
+    position: relative;
+    display: flex;
+    white-space: nowrap;
+    color: #989898;
+}
+.wpb_wrapper h2.form-heading:before, .wpb_wrapper h2.form-heading:after {
+    width: 100%;
+    height: 1px;
+    background: #989898;
+    display: inline-block;
+    content: '';
+    margin: 10px 10px 0 10px;
+}
+form.wcpv-shortcode-registration-form input[type="submit"] {
+	border-radius: 50px;
+  padding: 10px 60px;
+}
+.custom-checkbox {
+	position: relative;
+    width: 100%;
+    float: left;
+    padding: 10px 0 0 45px;
+		 font-size: 27px !important;
+}
+.custom-checkbox input{
+	width: 23px;
+height: 23px !important;
+position: absolute;
+left: 0;
+z-index: 20;
+cursor: pointer;
+    top: 14px;
+}
+.custom-checkbox input:before {
+	content: '';
+width: 26px;
+height: 26px;
+position: absolute;
+background: #ffffff;
+pointer-events: none;
+border: 1px solid #c1c1c1;
+color: #ffffff;
+font-size: 18px;
+border-radius: 5px;
+text-align: center;
+left: -1px;
+top: -1px;
+}
+.custom-checkbox input[type=checkbox]:checked:before {
+	background: #005678;
+	border-color: #005678;
+	content: "✓";
 }

@@ -75,6 +75,11 @@
 <?php wp_footer(); ?>
 
 <script>
+	
+jQuery('.woocommerce-LoopProduct-link > img').removeAttr('title');
+    jQuery(window).on('load',function(){
+		jQuery('#myModals').modal('show');
+    });
 
 jQuery(document).ready(function(){
 	
@@ -153,10 +158,6 @@ jQuery(document).ready(function(){
 
 });
 
-jQuery('.woocommerce-LoopProduct-link > img').removeAttr('title');
-    jQuery(window).on('load',function(){
-		jQuery('#myModals').modal('show');
-    });
 </script>
 
 <!--Tawk.to chatbox integration -->

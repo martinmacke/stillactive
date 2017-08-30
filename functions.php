@@ -1,4 +1,7 @@
 <?php
+
+require_once 'inc/custom_vendor_fields.php';
+
 add_theme_support( 'title-tag' );
 /* Custom excerpt lenght */
 function custom_excerpt_length( $length ) {
@@ -35,7 +38,7 @@ function add_scripts() {
 	wp_enqueue_script( 'matchheight', get_template_directory_uri() . '/js/jquery.matchHeight-min.js', array('jquery'), '0.5.2', false );
 	wp_enqueue_script( 'scripts', get_template_directory_uri() . '/js/scripts.js', array('jquery'), '1.0.1', true );
 	wp_enqueue_script( 'owl.carousel.min', get_template_directory_uri() . '/js/owl.carousel.min.js', array('jquery'), '1.0.0', true );
-	wp_register_style( 'stillactive', get_stylesheet_uri(), array( 'bootstrap.css' ));
+	wp_register_style( 'stillactive', get_stylesheet_uri() . "?2", array( 'bootstrap.css' ));
     wp_enqueue_style( 'stillactive' );
 	wp_register_script('masonryInit', get_stylesheet_directory_uri() . '/js/masonry.js', array('masonry'), '2.1.6', true);
 	wp_enqueue_script('masonryInit');
@@ -385,8 +388,19 @@ function remove_visual_composer() {
 		}
 	}
 }
+
 add_action( 'user_register', 'myplugin_registration_save', 10, 1 );
-function myplugin_registration_save( $user_id ) {  update_user_meta($user_id, 'prefix_first_login_my', '1'); }
+function myplugin_registration_save( $user_id ) {
+  update_user_meta($user_id, 'prefix_first_login_my', '1');
+
+  if ( isset( $_POST['first_name'] ) && isset( $_POST['last_name'] ) ) {
+    update_user_meta( $user_id, 'first_name', $_POST['first_name'] );
+    update_user_meta( $user_id, 'last_name', $_POST['last_name'] );
+  }
+
+}
+
+
 /* Remove Strong Password Requirement when registering */
 add_action( 'wp_print_scripts', 'DisableStrongPW', 100 );
 function DisableStrongPW() {
@@ -607,16 +621,16 @@ add_action( 'init', 'sa_social_login_move_register_buttons' );
 
 
 function sa_extra_register_fields() { ?>
-	
+
 	<h4 class="selection-tag">OR</h4>
 
    <p class="woocommerce-FormRow woocommerce-FormRow--wide form-row form-row-wide">
-     <label for="reg_billing_first_name"><?php _e( 'First name', 'woocommerce' ); ?></label>
-     <input type="text" class="input-text" name="billing_first_name" id="reg_billing_first_name" value="<?php if ( ! empty( $_POST['billing_first_name'] ) ) esc_attr_e( $_POST['billing_first_name'] ); ?>" />
+     <label for="reg_first_name"><?php _e( 'First name', 'woocommerce' ); ?></label>
+     <input type="text" class="input-text" name="first_name" id="reg_first_name" value="<?php if ( ! empty( $_POST['first_name'] ) ) esc_attr_e( $_POST['first_name'] ); ?>" />
    </p>
    <p class="woocommerce-FormRow woocommerce-FormRow--wide form-row form-row-wide">
-     <label for="reg_billing_last_name"><?php _e( 'Last name', 'woocommerce' ); ?></label>
-     <input type="text" class="input-text" name="billing_last_name" id="reg_billing_last_name" value="<?php if ( ! empty( $_POST['billing_last_name'] ) ) esc_attr_e( $_POST['billing_last_name'] ); ?>" />
+     <label for="reg_last_name"><?php _e( 'Last name', 'woocommerce' ); ?></label>
+     <input type="text" class="input-text" name="last_name" id="reg_last_name" value="<?php if ( ! empty( $_POST['last_name'] ) ) esc_attr_e( $_POST['last_name'] ); ?>" />
    </p>
    <div class="clear"></div>
    <?php
@@ -669,3 +683,115 @@ function searchfilter($query) {
 	return $query;
 }
 add_filter('pre_get_posts','searchfilter');
+
+
+function sa_update_referral_content_before() {?>
+
+  <div class="row">
+    <div class="col-xs-1">
+      <i class="icon-add-friends"></i>
+    </div>
+    <div class="col-xs-11">
+      <h3 class="vc_custom_heading"><?php _e( 'Tell your friends and family about Still Active and get rewarded!', 'stillactive' ) ?></h3>
+    </div>
+  </div>
+
+	<div class="row">
+    <div class="col-xs-12">
+      <?php _e('This is your unique referral code - send this to your friends! For each friend that signs up and books an activity, you will receive 10% at Still Active! Your friend must use this specific URL when signing up to become a member.', 'stillactive' ) ?>
+    </div>
+	</div>
+
+  <?php
+}
+add_action( 'woocommerce_before_my_account', 'sa_update_referral_content_before', 0 );
+
+
+function sa_update_referral_content_after() {?>
+
+  <div class="row">
+    <div class="col-xs-12 text-center">
+      <?php _e('Share this URL with everyone you know', 'stillactive' ) ?>
+    </div>
+  </div>
+
+	<div class="row" style="margin-top: 50px;">
+    <div class="col-xs-1">
+      <i class="icon-coupon"></i>
+    </div>
+    <div class="col-xs-11">
+      <h3 class="vc_custom_heading"><?php _e('Your earned referral coupons', 'stillactive' ) ?></h3>
+    </div>
+  </div>
+
+
+  <?php
+	$args = array(
+    'posts_per_page'   => -1,
+    'orderby'          => 'title',
+    'order'            => 'asc',
+    'post_type'        => 'shop_coupon',
+    'post_status'      => 'publish',
+  );
+
+  $coupons = get_posts( $args );
+  ?>
+
+	<div class="row sa-refer-friend">
+    <div class="col-xs-12">
+      <table class="table">
+        <thead>
+          <tr>
+            <th><?php _e('Coupon code', 'stillactive' ) ?></th>
+            <th><?php _e('Coupon discount', 'stillactive' ) ?></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <?php if ( count( $coupons ) > 0 ) {
+
+            $current_user = wp_get_current_user();
+
+            foreach( $coupons as $key => $coupon ){
+
+              $customer_email = get_post_meta( $coupon->ID, 'customer_email', true );
+              $expiry_date    = get_post_meta( $coupon->ID, 'expiry_date', true );
+              $coupon_amount  = get_post_meta( $coupon->ID, 'coupon_amount', true );
+              $discount_type  = get_post_meta( $coupon->ID, 'discount_type', true );
+
+              $is_expired   = 'no';
+              if ( ! empty( $expiry_date ) && strtotime( $expiry_date ) < strtotime( date( 'Y-m-d H:i:s' ) ) ) {
+                $is_expired   = 'yes';
+              }
+
+              if (
+                'no' === $is_expired
+                &&
+                (
+                  (
+                    is_array( $customer_email )
+                    &&
+                    ( empty( $customer_email ) || in_array( $current_user->user_email, $customer_email ) )
+                  )
+                  ||
+                  $customer_email === $current_user->user_email
+                )
+              ) {
+                ?>
+
+                <tr>
+                  <td> <?php echo $coupon->post_title; ?> </td>
+                  <td> <?php echo $coupon_amount; echo ( $discount_type == 'percent' ) ? '%' : ''; ?></td>
+                </tr>
+
+              <?php
+              }
+            }
+          }?>
+        </tbody>
+      </table>
+    </div>
+	</div>
+  <?php
+}
+#add_action( 'woocommerce_before_my_account', 'sa_update_referral_content_after' );
