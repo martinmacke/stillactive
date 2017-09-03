@@ -41,7 +41,6 @@ ul#adminmenu > li.current > a.current:after {
 /*custom wp admin bar*/
 #wpadminbar {
   text-transform: uppercase;
-  font-family: "brandon-grotesque", Helvetica, sans;
   background: #ffffff;
   font-size: 10px;
   color: #909090;
@@ -91,7 +90,6 @@ ul#adminmenu > li.current > a.current:after {
 #wpadminbar:not(.mobile) .ab-top-menu > li > .ab-item {
   text-transform: uppercase;
   letter-spacing: 1px;
-  font-family: "brandon-grotesque", Helvetica, sans;
   font-weight: bold;
   font-size: 10px;
   color: #909090;
@@ -254,9 +252,6 @@ ul > li.current > a.current:after {
 
 /*custom dashboard title*/
 #wpbody-content .wrap h1 {
-  font-family: "brandon-grotesque", Helvetica, sans;
-  font-weight: bold;
-  font-size: 30px;
   padding: 2px 0 0;
   margin: 0 0 20px;
   color: #005678;
