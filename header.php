@@ -10,6 +10,10 @@
 
 <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" type="text/css" media="screen" />
 
+<?php
+$liveserver = "www.stillactive.se"; // Your Sub domain
+if ($_SERVER['HTTP_HOST'] == $liveserver):
+?>
 <!-- Hotjar Tracking Code for www.stillactive.se -->
 <script>
     (function(h,o,t,j,a,r){
@@ -21,6 +25,7 @@
         a.appendChild(r);
     })(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');
 </script>
+<?php endif; ?>
 
 <?php wp_head(); ?>
 </head>

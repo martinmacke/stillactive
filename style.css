@@ -1311,9 +1311,6 @@ body.woocommerce .sa_custom_description .woocommerce-product-rating .star-rating
 	margin: 0 auto;
 	float: none;
 }
-body.woocommerce .lead p.price, body.woocommerce .lead span.price {
-	font-weight: 500;
-}
 body.woocommerce .sa_custom_description .woocommerce-review-link {
 	font-size: 14px;
 	color: black;
@@ -1337,7 +1334,6 @@ body.woocommerce p.wcpv-hosted-by-single {
 }
 body.woocommerce p.sa_p_address {
 	margin-bottom: 0;
-	font-weight: 500;
 }
 body.woocommerce .sa_address_value small {
 	font-size: 75%;
