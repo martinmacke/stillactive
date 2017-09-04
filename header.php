@@ -86,7 +86,7 @@ $my_home_url = apply_filters( 'wpml_home_url', get_option( 'home' ) );
 			?>
 		</div>
 		
-		<ul class="blognav">
+		<ul class="blognav hidden-xs">
 		<?php
 			$args = array('hide_empty' => 0, 'depth' => 1, 'title_li' => '', 'show_option_all' => 'All');
 			wp_list_categories($args);	

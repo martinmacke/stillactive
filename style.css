@@ -1589,6 +1589,10 @@ body.woocommerce .sa_save_later_div {
 #siteheader .sa_nav_div a.sa_loggedin_username {
 	margin: 0 12px;
 }
+	 #siteheader .logo img {
+		 width: 50px;
+		 height: 50px;
+	 }
 }
 @media all and (max-width:767px) {
 .sa_center_row {
