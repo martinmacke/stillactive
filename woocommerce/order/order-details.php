@@ -78,10 +78,16 @@ $show_customer_details = is_user_logged_in() && $order->get_user_id() === get_cu
 		$('.order_item_address').each( function(e){
 			_this			= $(this);
 			em 				= _this.parent().find('.wcpv-sold-by-order-details');
+			
+			// Replace Sold By: text
+			em.contents().filter(function(){ 
+			  return this.nodeType == 3;
+			})[0].nodeValue = "With: ";
+			
 			html_sold_by	= '<em class="wcpv-sold-by-order-details"> ' + em.html() + ' </em><br/>';
 			em.remove();
 			$(html_sold_by).insertBefore(_this);
-			console.log( _this.parent().find('.wcpv-sold-by-order-details').html() );
+			// console.log( _this.parent().find('.wcpv-sold-by-order-details').text() );
 		});
 	});
 </script>

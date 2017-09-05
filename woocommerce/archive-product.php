@@ -139,8 +139,14 @@ get_header( 'shop' ); ?>
 						<?php if( isset($vendor_data['address']) && $vendor_data['address'] != '' ){ ?>
 							<li><i class="glyphicon glyphicon-map-marker"></i> <?php echo $vendor_data['address']; ?> <small class="sa_see_map_v pull-right"><a href="http://maps.google.com/?q=<?php echo $vendor_data['address']; ?>" target="_blank">Show Map</a></small></li>
 						<?php } ?>
-						<?php if( isset($vendor_data['website']) && $vendor_data['website'] != '' ){ ?>
-							<li><i class="glyphicon glyphicon-globe"></i> <a target="_blank" href="<?php echo $vendor_data['website']; ?>"><?php echo $vendor_data['website']; ?></a></li>
+						<?php
+							if( isset($vendor_data['website']) && $vendor_data['website'] != '' ){
+							$vendor_website	= $vendor_data['website'];
+							if ( strpos( $vendor_website, 'http' ) === false ) {
+								$vendor_website	= 'http://' . $vendor_website;
+							}
+							?>
+							<li><i class="glyphicon glyphicon-globe"></i> <a target="_blank" href="<?php echo $vendor_website; ?>"><?php echo $vendor_data['website']; ?></a></li>
 						<?php } ?>
 					</ul>
 				</div>
