@@ -548,6 +548,9 @@ span.tab {
 	color: #333333 !important;
 	font-size: 100%;
 }
+.woocommerce .product span.onsale {
+	display: none;
+}
 .woocommerce-MyAccount-navigation ul {
 	list-style: none;
 	padding-left: 0;

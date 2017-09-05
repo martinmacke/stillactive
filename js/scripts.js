@@ -167,6 +167,11 @@ $(document).on('click','.thumbnails .zoom', function(){
     }); 
 */
 
+/* Automatically open external links in new tab or window */
+$(document.links).filter(function() {
+  return this.hostname != window.location.hostname;
+}).attr('target', '_blank');
+
 $(function() {
     //caches a jQuery object containing the header element
     var header = $("#siteheader");
