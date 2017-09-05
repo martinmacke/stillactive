@@ -29,7 +29,6 @@ add_action( 'init', 'register_my_menus' );
 function add_scripts() {
 	wp_enqueue_script( 'bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js', array('jquery'), '3.3.7', true );
 	wp_register_style( 'bootstrap.css', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', array(), '3.3.7', 'screen' );
-	wp_enqueue_style( 'owl.carousel',  get_template_directory_uri() . '/css/owl.carousel.css', array(), '1.0.0' );
 	wp_enqueue_style( 'slick.css',  get_template_directory_uri() . '/slick/slick.css', array(), '1.5', 'screen' );
 	wp_enqueue_style( 'slick-theme.css',  get_template_directory_uri() . '/slick/slick-theme.css', array(), '1.5', 'screen' );
 	wp_enqueue_script( 'slick', get_template_directory_uri() . '/slick/slick.min.js', array('jquery'), '1.5', false );
@@ -37,7 +36,6 @@ function add_scripts() {
 	wp_enqueue_script( 'sidr', get_template_directory_uri() . '/sidr/jquery.sidr.min.js', array('jquery'), '1.2.1', false );
 	wp_enqueue_script( 'matchheight', get_template_directory_uri() . '/js/jquery.matchHeight-min.js', array('jquery'), '0.5.2', false );
 	wp_enqueue_script( 'scripts', get_template_directory_uri() . '/js/scripts.js', array('jquery'), '1.0.1', true );
-	wp_enqueue_script( 'owl.carousel.min', get_template_directory_uri() . '/js/owl.carousel.min.js', array('jquery'), '1.0.0', true );
 	wp_register_style( 'stillactive', get_stylesheet_uri() . "?2", array( 'bootstrap.css' ));
     wp_enqueue_style( 'stillactive' );
 	wp_register_script('masonryInit', get_stylesheet_directory_uri() . '/js/masonry.js', array('masonry'), '2.1.6', true);
@@ -795,3 +793,67 @@ function sa_update_referral_content_after() {?>
   <?php
 }
 #add_action( 'woocommerce_before_my_account', 'sa_update_referral_content_after' );
+
+
+/**
+ * Show booking data if a line item is linked to a booking ID.
+ */
+add_action( 'woocommerce_order_item_meta_end', 'sa_booking_display', 10, 3 );
+function sa_booking_display( $item_id, $item, $order ) {
+	$booking_ids = WC_Booking_Data_Store::get_booking_ids_from_order_item_id( $item_id );
+	$WC_Booking_Order_Manager	= new WC_Booking_Order_Manager();
+
+	if ( $booking_ids ) {
+		foreach ( $booking_ids as $booking_id ) {
+			$booking = new WC_Booking( $booking_id );
+			?>
+			<div class="wc-booking-summary sa_booking_summary">
+				<strong class="wc-booking-summary-number">
+					<?php printf( __( 'Booking #%s', 'woocommerce-bookings' ), esc_html( $booking->get_id() ) ); ?>
+					<span class="status-<?php echo esc_attr( $booking->get_status() ); ?>">
+						<?php echo esc_html( wc_bookings_get_status_label( $booking->get_status() ) ) ?>
+					</span>
+				</strong>
+				<?php
+					$product  = $booking->get_product();
+					$resource = $booking->get_resource();
+					$label    = $product && is_callable( array( $product, 'get_resource_label' ) ) && $product->get_resource_label() ? $product->get_resource_label() : __( 'Type', 'woocommerce-bookings' );
+					?>
+					<ul class="wc-booking-summary-list">
+						<li><?php echo esc_html( sprintf(  __( '%1$s', 'woocommerce-bookings' ), 'Activity start time: ' . $booking->get_start_date() ) ); ?></li>
+						<li style="border-right: none;"><?php echo esc_html( sprintf(  __( '%1$s', 'woocommerce-bookings' ), 'Activity end time: ' . $booking->get_end_date() ) ); ?></li>
+						<br/>
+
+						<?php if ( $resource ) : ?>
+							<li><?php echo esc_html( sprintf( __( '%s: %s', 'woocommerce-bookings' ), $label, $resource->get_name() ) ); ?></li>
+						<?php endif; ?>
+
+						<?php
+							if ( $product->has_persons() ) {
+								$person_types  = $product->get_person_types();
+								$person_counts = $booking->get_person_counts();
+
+								if ( ! empty( $person_types ) && is_array( $person_types ) ) {
+									foreach ( $person_types as $person_type ) {
+										?>
+										<li><?php echo esc_html( sprintf( '%s: %d', $person_type->get_name(), isset( $person_counts[ $person_type->get_id() ] ) ? $person_counts[ $person_type->get_id() ] : 0 ) ); ?></li>
+										<?php
+									}
+								} else {
+									?>
+									<li><?php echo esc_html( sprintf( __( '%d Persons', 'woocommerce-bookings' ), array_sum( $booking->get_person_counts() ) ) ); ?></li>
+									<?php
+								}
+							}
+						?>
+					</ul>
+				<div class="wc-booking-summary-actions" style="margin: 0;">
+					<?php if ( $booking_id && function_exists( 'wc_get_endpoint_url' ) && wc_get_page_id( 'myaccount' ) ) : ?>
+						<a href="<?php echo esc_url( wc_get_endpoint_url( $WC_Booking_Order_Manager->get_endpoint(), '', wc_get_page_permalink( 'myaccount' ) ) ); ?>"><?php _e( 'View my bookings &rarr;', 'woocommerce-bookings' ); ?></a>
+					<?php endif; ?>
+				</div>
+			</div>
+			<?php
+		}
+	}
+}

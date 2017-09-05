@@ -27,7 +27,7 @@
 <h1 class="text-center sa_text_center"><?php _e('What would you like', 'stillactive'); ?> <a href="<?php echo $shop_page_url ;?>" class="blue"><?php _e('to do?', 'stillactive'); ?></a></h1>
 <p class="lead text-center"><?php _e('Still Active is a hassle-free service to meet like-minded people and discover unique activities in Stockholm!', 'stillactive'); ?></p>
 
-<div class="owl-carousel azure-owl-carousel-slider">
+<div class="owl-carousel sa-slick-carousel azure-owl-carousel-slider">
 
 <?php
 $category_list_items	= get_terms(
