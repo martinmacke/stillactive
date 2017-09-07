@@ -1,3 +1,16 @@
+<?php
+session_start();
+if( !is_user_logged_in() ){
+	if( '/my-account/' != $_SERVER['REQUEST_URI'] ){
+		$_SESSION['sa_redirect_after_login'] = $_SERVER['REQUEST_URI'];
+	}
+}else{
+	if( isset( $_SESSION['sa_redirect_after_login'] ) ){
+		unset( $_SESSION['sa_redirect_after_login'] );
+	}
+}
+?>
+
 <!doctype html>
 <html>
 <head>
@@ -66,8 +79,8 @@ $my_home_url = apply_filters( 'wpml_home_url', get_option( 'home' ) );
 			}
 			else {
 			?>		 
-			<!--<a class="btn btn-primary" href="<?php echo $account_page_url ?>">Login / Sign up</a>  -->
-			<a class="sa_mobile_menu user_login_menu" href="<?php echo $account_page_url ?>">
+			<!--<a class="btn btn-primary" href="<?php echo $account_page_url; ?>">Login / Sign up</a>  -->
+			<a class="sa_mobile_menu user_login_menu" href="<?php echo $account_page_url; ?>">
 				<i class="fa fa-user" aria-hidden="true"></i>
 				<div class='sa_menu_text'>Login</div>
 			</a>  

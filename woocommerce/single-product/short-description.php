@@ -31,9 +31,13 @@ $sold_by			= get_option( 'wcpv_vendor_settings_display_show_by', 'yes' );
 $vendor_data		= WC_Product_Vendors_Utils::get_all_vendor_data( $product->post->post_author );
 $duration			= $product->get_attribute('pa_duration');
 $physical_fitness	= $product->get_attribute('pa_physical-fitness');
+
 $sa_exclusive		= $product->get_attribute('pa_still-active-exclusive');
+$has_persons		= get_post_meta( $post->ID, '_wc_booking_has_persons', true );
+$booking_min_persons		= get_post_meta( $post->ID, '_wc_booking_min_persons_group', true );
 // echo "<pre>";
-// print_r($sa_exclusive);
+// print_r($has_persons);
+// print_r($booking_min_persons);
 // echo $cancel_limit->get_cancel_limit();
 $can_cancel			= get_post_meta( $post->ID, '_wc_booking_user_can_cancel', true );
 $cancel_limit		= get_post_meta( $post->ID, '_wc_booking_cancel_limit', true );
@@ -45,13 +49,8 @@ if( $cancel_limit > 1 ){
 // print_r($cancel_limit);
 // echo "</pre>";
 ?>
-<div class="row sa_custom_description">
-	<div class="col-xs-8">
-		<div itemprop="description">
-		<?php echo apply_filters( 'woocommerce_short_description', $post->post_excerpt ) ?>
-		</div>
-	</div>
-	<div class="col-xs-4">
+
+
 		<?php
 		if ( get_option( 'woocommerce_enable_review_rating' ) === 'no' ) {
 			return;
@@ -62,25 +61,22 @@ if( $cancel_limit > 1 ){
 		$average      = $product->get_average_rating();
 
 		if ( $rating_count > 0 ) : ?>
-
-			<div class="woocommerce-product-rating" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
-				<div class="star-rating" title="<?php printf( __( 'Rated %s out of 5', 'woocommerce' ), $average ); ?>">
-					<span style="width:<?php echo ( ( $average / 5 ) * 100 ); ?>%">
-						<strong itemprop="ratingValue" class="rating"><?php echo esc_html( $average ); ?></strong> <?php printf( __( 'out of %s5%s', 'woocommerce' ), '<span itemprop="bestRating">', '</span>' ); ?>
-						<?php printf( _n( 'based on %s customer rating', 'based on %s customer ratings', $rating_count, 'woocommerce' ), '<span itemprop="ratingCount" class="rating">' . $rating_count . '</span>' ); ?>
-					</span>
+			<div class="row sa_custom_description pull-right">
+				<div class="col-xs-12">
+					<div class="woocommerce-product-rating" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+						<div class="star-rating" title="<?php printf( __( 'Rated %s out of 5', 'woocommerce' ), $average ); ?>">
+							<span style="width:<?php echo ( ( $average / 5 ) * 100 ); ?>%">
+								<strong itemprop="ratingValue" class="rating"><?php echo esc_html( $average ); ?></strong> <?php printf( __( 'out of %s5%s', 'woocommerce' ), '<span itemprop="bestRating">', '</span>' ); ?>
+								<?php printf( _n( 'based on %s customer rating', 'based on %s customer ratings', $rating_count, 'woocommerce' ), '<span itemprop="ratingCount" class="rating">' . $rating_count . '</span>' ); ?>
+							</span>
+						</div>
+						<?php if ( comments_open() ) : ?><a href="#reviews" class="woocommerce-review-link" rel="nofollow"><?php printf( _n( '%s review', '%s reviews', $review_count, 'woocommerce' ), '<span itemprop="reviewCount" class="count">' . $review_count . '</span>' ); ?></a><?php endif ?>
+					</div>
 				</div>
-				<?php if ( comments_open() ) : ?><a href="#reviews" class="woocommerce-review-link" rel="nofollow"><?php printf( _n( '%s review', '%s reviews', $review_count, 'woocommerce' ), '<span itemprop="reviewCount" class="count">' . $review_count . '</span>' ); ?></a><?php endif ?>
 			</div>
 
-		<?php endif; ?>
-
-	</div>
-</div>
-
-
-<hr>
-<?php
+		<?php
+		endif;
 
 if ( 'yes' === $sold_by ) {
 
@@ -103,6 +99,10 @@ if ( 'yes' === $sold_by ) {
 	<?php if( !empty($sa_exclusive) && ($sa_exclusive == 'Yes' || $sa_exclusive == 'Ja') ){ ?>
 		<img width="50" height="50" src="<?php bloginfo('template_url'); ?>/images/icon-ribbon.png" alt="">
 		<p><?php _e('Exclusive', 'stillactive'); ?><br><small><?php _e('by Still Active', 'stillactive'); ?></small></p>
+	<?php } ?>
+	<?php if( 'yes' == $has_persons && !empty( $booking_min_persons ) && $booking_min_persons > 1 ){ ?>
+		<img width="50" height="50" src="<?php bloginfo('template_url'); ?>/images/icon-people.png" alt="">
+		<p><?php echo $booking_min_persons; _e(' People', 'stillactive'); ?><br><small><?php _e('Minimum', 'stillactive'); ?></small></p>
 	<?php } ?>
 	
 </div>
@@ -163,3 +163,12 @@ if( 1 == $can_cancel ){
 	<hr>
 
 <?php } ?>
+
+
+<div class="row sa_custom_description">
+	<div class="col-xs-12">
+		<div itemprop="description">
+		<?php echo apply_filters( 'woocommerce_short_description', $post->post_excerpt ) ?>
+		</div>
+	</div>
+</div>

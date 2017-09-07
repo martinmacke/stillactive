@@ -156,4 +156,17 @@ display: none !important;
 
 		</form>
 
-<?php do_action( 'woocommerce_after_customer_login_form' ); ?>
+<?php
+do_action( 'woocommerce_after_customer_login_form' );
+
+if( !is_user_logged_in() && isset( $_SESSION['sa_redirect_after_login'] ) ){
+$redirect_to	= $_SESSION['sa_redirect_after_login'];
+?>
+<script>
+	jQuery(document).ready( function($){
+		$('input[name=_wp_http_referer]').val('<?php echo $redirect_to; ?>');
+	});
+</script>
+<?php
+}
+?>

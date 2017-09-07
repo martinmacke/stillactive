@@ -41,26 +41,75 @@ get_header( 'shop' ); ?>
 			// echo "</pre>";
 			
 			// get vendor's rating
+			// $v_rating_nos	= 0;
+			// $v_rating_count	= 0;
+			// $v_review_count	= 0;
+			// $v_average		= 0;
+			$author_id		= 0;
+			while ( have_posts() ) : the_post();
+				
+				// $product_id	= get_the_ID();
+				$author_id	= get_the_author_meta( 'ID' );
+				# echo '<br/>';
+				
+				// break;
+				// $_product	= $_pf->get_product($product_id);
+				
+				// if ( get_option( 'woocommerce_enable_review_rating' ) === 'no' ) {
+					// #do nothing
+				// }else{
+					// if( $_product->get_rating_count() > 0 ){
+						// $v_rating_nos++;
+						
+						// $v_rating_count += $_product->get_rating_count();
+						// $v_average      += $_product->get_average_rating();
+					// }
+				// }
+			endwhile;
+			
+			// echo $author_id;
+			$product_args	= array(
+				'posts_per_page'	=> -1,
+				'post_type'			=> 'product',
+				'author'			=> $author_id,
+				'post_status'		=> array('publish', 'private', 'draft'),
+				// 'meta_query' => array(
+					// array(
+						// 'key'       => '_visibility',
+						// 'value'     => 'hidden'
+					// )
+				// )
+				// 'post_status'		=> array('private')
+			);
+			$products_array = get_posts( $product_args );
+			
 			$v_rating_nos	= 0;
 			$v_rating_count	= 0;
 			$v_review_count	= 0;
 			$v_average		= 0;
-			while ( have_posts() ) : the_post();
+			if( count( $products_array ) > 0 ){
 				
-				$product_id	= get_the_ID();
-				$_product	= $_pf->get_product($product_id);
-				
-				if ( get_option( 'woocommerce_enable_review_rating' ) === 'no' ) {
-					// do nothing
-				}else{
-					if( $_product->get_rating_count() > 0 ){
-						$v_rating_nos++;
-						
-						$v_rating_count += $_product->get_rating_count();
-						$v_average      += $_product->get_average_rating();
+				foreach( $products_array as $single_prod ){
+					$product_id_	= $single_prod->ID;
+					$_product	= $_pf->get_product($product_id_);
+					
+					if ( get_option( 'woocommerce_enable_review_rating' ) === 'no' ) {
+						# do nothing
+					}else{
+						if( $_product->get_rating_count() > 0 ){
+							$v_rating_nos++;
+							
+							$v_rating_count += $_product->get_rating_count();
+							$v_average      += $_product->get_average_rating();
+						}
 					}
 				}
-			endwhile;	
+			}
+			
+			// echo "<pre>";
+			// print_r( $products_array );
+			// echo "</pre>";
+			
 	?>
 		<?php
 			/**
