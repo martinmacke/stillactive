@@ -102,7 +102,7 @@ if ( 'yes' === $sold_by ) {
 	<?php } ?>
 	<?php if( 'yes' == $has_persons && !empty( $booking_min_persons ) && $booking_min_persons > 1 ){ ?>
 		<img width="50" height="50" src="<?php bloginfo('template_url'); ?>/images/icon-people.png" alt="">
-		<p><?php echo $booking_min_persons; _e(' People', 'stillactive'); ?><br><small><?php _e('Minimum', 'stillactive'); ?></small></p>
+		<p><?php echo $booking_min_persons . " "; _e(' People', 'stillactive'); ?><br><small><?php _e('Minimum', 'stillactive'); ?></small></p>
 	<?php } ?>
 	
 </div>
