@@ -185,6 +185,7 @@ function custom_admin_theme_style() {
     wp_enqueue_style('icons-stillactive-ie7-style', get_template_directory_uri() . '/css/stillactive-ie7.css');
     wp_enqueue_style('icons-stillactive-ie7-codes-style', get_template_directory_uri() . '/css/stillactive-ie7-codes.css');
     wp_enqueue_style('custom-admin-style', get_template_directory_uri() . '/css/admin.css');
+	wp_enqueue_script( 'admin-scripts', get_template_directory_uri() . '/js/admin.js', array('jquery'), '1.0.1', true );
     /*custom styles for vendor admin panel*/
     if(get_user_group()=='vendor'){
         wp_enqueue_style('custom-admin-vendor-style', get_template_directory_uri() . '/css/admin_vendor.css');
@@ -199,12 +200,7 @@ function remove_note_vendor(){
     }
 }
 add_action('admin_menu','remove_note_vendor','999');
-/*add custom font*/
-function add_typekit(){
-    echo '<script src="https://use.typekit.net/wqp3wah.js"></script>';
-    echo '<script>try{Typekit.load({ async: true });}catch(e){}</script>';
-}
-add_action('admin_head', 'add_typekit');
+
 /*set custom dashboard title*/
 function custom_dashboard_title(){
     if(get_user_group()=='vendor'){
@@ -217,54 +213,7 @@ function custom_dashboard_title(){
     }
 }
 add_action( 'admin_head', 'custom_dashboard_title' );
-/*add custom nav to vendor dashboard*/
-function wptutsplus_add_dashboard_widgets() {
-    wp_add_dashboard_widget( 'wptutsplus_dashboard_welcome', 'Welcome', 'wptutsplus_add_welcome_widget' );
-	wp_add_dashboard_widget( 'wptutsplus_dashboard_links', 'Useful Links', 'wptutsplus_add_links_widget' );
-}
-function wptutsplus_add_welcome_widget(){ ?>
-    This content management system lets you edit the pages and posts on your website.
-    Your site consists of the following content, which you can access via the menu on the left:
-    <ul>
-        <li><strong>Pages</strong> - static pages which you can edit.</li>
-        <li><strong>Posts</strong> - news or blog articles - you can edit these and add more.</li>
-        <li><strong>Media</strong> - images and documents which you can upload via the Media menu on the left or within each post or page.</li>
-    </ul>
-    On each editing screen there are instructions to help you add and edit content.
-<?php }
-function wptutsplus_add_links_widget() { ?>
-    Some links to resources which will help you manage your site:
-    <ul>
-        <li><a href="http://wordpress.org">The WordPress Codex</a></li>
-        <li><a href="http://easywpguide.com">Easy WP Guide</a></li>
-        <li><a href="http://www.wpbeginner.com">WP Beginner</a></li>
-    </ul>
-<?php }
-//add_action( 'wp_dashboard_setup', 'wptutsplus_add_dashboard_widgets' ,'high');
-/*replace and add custom admin template for vendor*/
-class rc_sweet_custom_dashboard {
-	/*--------------------------------------------*
-	 * Constructor
-	 *--------------------------------------------*/
-	/**
-	 * Initializes the plugin
-	 */
-	function __construct() {
-	} // end constructor
-}
-// instantiate plugin's class
-$GLOBALS['sweet_custom_dashboard'] = new rc_sweet_custom_dashboard();
-function rc_scd_register_menu() {
-    add_dashboard_page(
-        'Custom Vendor Dashboard',
-        'Custom Vendor Dashboard',
-        'read',
-        'custom_admin_vendor',
-        array(&$this,'rc_scd_create_dashboard'));
-}
-function rc_scd_create_dashboard() {
-    include_once( 'custom_admin_vendor.php'  );
-}
+
 //add_action('admin_menu', array( &$this,'rc_scd_register_menu') );
 //add_action('load-index.php', array( &$this,'rc_scd_redirect_dashboard') );
 add_action('admin_init', 'remove_product_editor');
@@ -634,8 +583,6 @@ function sa_extra_register_fields() { ?>
    <?php
  }
  add_action( 'woocommerce_register_form_start', 'sa_extra_register_fields', 20 );
-
-
 
  // Add the code below to your theme's functions.php file to add a confirm password field on the register form under My Accounts.
 add_filter('woocommerce_registration_errors', 'sa_registration_errors_validation', 10,3);
