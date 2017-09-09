@@ -47,21 +47,22 @@
 
 <div id="respond">
 
-<h5><?php comment_form_title( 'Leave a Reply', 'Leave a Reply to %s' ); ?></h5>
+<h5><?php _e( 'Leave a Reply' ); ?></h5>
 
 <div class="cancel-comment-reply">
 	<small><?php cancel_comment_reply_link(); ?></small>
 </div>
 
 <?php if ( get_option('comment_registration') && !$user_ID ) : ?>
-<p>You must be <a href="<?php echo get_permalink( get_option('woocommerce_myaccount_page_id') ); ?>">logged in</a> to post a comment.</p>
+<p><?php _e('You must be logged in to post a comment', 'stillactive'); ?></p>
+<p><a class="btn btn-default" href="<?php echo get_permalink( get_option('woocommerce_myaccount_page_id') ); ?>"><?php _e('Log in'); ?></a></p>
 <?php else : ?>
 
 <form action="<?php echo get_option('siteurl'); ?>/wp-comments-post.php" method="post" id="commentform">
 
 <?php if ( $user_ID ) : ?>
 
-<p>Logged in as <a href="<?php echo get_option('siteurl'); ?>/wp-admin/profile.php"><?php echo $user_identity; ?></a>. <a href="<?php echo wp_logout_url(get_permalink()); ?>" title="Log out of this account">Log out &raquo;</a></p>
+<p><?php _e('Logged in as', 'stillactive'); ?> <a href="<?php echo get_option('siteurl'); ?>/wp-admin/profile.php"><?php echo $user_identity; ?></a>. <a href="<?php echo wp_logout_url(get_permalink()); ?>" title="Log out of this account"><?php _e('Log out'); ?></a></p>
 
 <?php else : ?>
 
@@ -69,7 +70,7 @@
 <label for="author"><small>Name <?php if ($req) echo "(required)"; ?></small></label></p>
 
 <p><input type="text" name="email" id="email" value="<?php echo $comment_author_email; ?>" size="22" tabindex="2" <?php if ($req) echo "aria-required='true'"; ?> />
-<label for="email"><small>Mail (will not be published) <?php if ($req) echo "(required)"; ?></small></label></p>
+<label for="email"><small>Email (will not be published) <?php if ($req) echo "(required)"; ?></small></label></p>
 
 <p><input type="text" name="url" id="url" value="<?php echo $comment_author_url; ?>" size="22" tabindex="3" />
 <label for="url"><small>Website</small></label></p>
@@ -80,7 +81,7 @@
 
 <p><textarea name="comment" id="comment" cols="100%" rows="10" tabindex="4"></textarea></p>
 
-<p><input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
+<p><input name="submit" type="submit" id="submit" tabindex="5" value="<?php _e('Submit Comment', 'stillactive'); ?>" />
 <?php comment_id_fields(); ?>
 </p>
 <?php do_action('comment_form', $post->ID); ?>
