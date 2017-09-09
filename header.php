@@ -66,8 +66,8 @@ $my_home_url = apply_filters( 'wpml_home_url', get_option( 'home' ) );
 			}
 			else {
 			?>		 
-			<!--<a class="btn btn-primary" href="<?php echo $account_page_url ?>">Login / Sign up</a>  -->
-			<a class="sa_mobile_menu user_login_menu" href="<?php echo $account_page_url ?>">
+			<!--<a class="sa_mobile_menu user_login_menu" href="<?php echo wp_login_url( get_permalink() ); ?>" title="Login"><i class="fa fa-user" aria-hidden="true"></i> <div class='sa_menu_text'>Login</div></a>-->
+			<a class="sa_mobile_menu user_login_menu" href="<?php echo $account_page_url; ?>">
 				<i class="fa fa-user" aria-hidden="true"></i>
 				<div class='sa_menu_text'>Login</div>
 			</a>  
