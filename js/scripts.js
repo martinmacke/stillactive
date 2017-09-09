@@ -68,7 +68,7 @@ $( document ).ready(function() {
             infinite: true,
             autoplay: false,
             arrows: true,
-            dots: false,
+            dots: true,
             pauseOnHover: false,
             slidesToShow: 3,
             slidesToScroll: 1,
@@ -96,7 +96,7 @@ $( document ).ready(function() {
 		infinite: true,
 		autoplay: true,
 		arrows: true,
-		dots: false,
+		dots: true,
 		pauseOnHover: false,
 		autoplaySpeed: 4000,
 		slidesToShow: 5,
@@ -138,7 +138,7 @@ $( document ).ready(function() {
 	$('.sa-slick-carousel').slick({
 		infinite: true,
 		autoplay: false,
-		arrows: false,
+		arrows: true,
 		dots: true,
 		pauseOnHover: false,
 		slidesToShow: 5,
@@ -153,7 +153,7 @@ $( document ).ready(function() {
 		  }
 		},
 		{
-		  breakpoint: 780,
+		  breakpoint: 920,
 		  settings: {
 			slidesToShow: 4,
 			slidesToScroll: 1

@@ -396,9 +396,6 @@ span.tab {
 	text-decoration: none;
 	border-color: #33ccff;
 }
-#what .owl-carousel {
-	margin-bottom: 0;
-}
 .home #what img {
 	margin-bottom: 22px;
 }
@@ -425,7 +422,7 @@ span.tab {
 #about .video .player a {
 	margin: 0 auto;
 }
-#mostpopular .add_to_cart_button, #mostpopular .wcpv-sold-by-loop {
+#mostpopular .add_to_cart_button, #mostpopular .wcpv-sold-by-loop, #mostpopular a.button.product_type_external {
 	display: none;
 }
 #indiegogo {
@@ -1042,7 +1039,6 @@ button.single_add_to_cart_button {
 	color: #005678 !important;
 }
 .slick-dots li button {
-	border: 2px solid #005678;
 	border-radius: 100%;
 }
 .slick-dots li button::before {
@@ -1062,6 +1058,20 @@ button.single_add_to_cart_button {
 .slick-slide img {
 	vertical-align: middle;
 	display: inline;
+}
+.sa-slick-carousel .slick-dots{
+	bottom: -30px;
+}
+.slick-list.draggable{
+	padding: 15px 0;
+}
+#partners .slick-dots {
+	margin-bottom: 30px;
+	bottom: -10px;
+}
+#partners .slick-slider {
+	margin-top: 0;
+	margin-bottom: 0;
 }
 .vc_column-inner .wcpv-vendor-list-shortcode {
 	display: -webkit-box;
@@ -1095,7 +1105,7 @@ button.single_add_to_cart_button {
 	text-align: center;
 }
 .slick .wcpv-vendor-list-shortcode li img {
-	max-width: 180px;
+	max-width: 130px;
 	width: 100%;
 }
 /* Custom Dropdown */
@@ -1576,18 +1586,21 @@ body.woocommerce .sa_save_later_div {
 }
 }
  @media all and (max-width:768px) {
-.woocommerce ul.products li.product, .woocommerce-page ul.products li.product {
-	width: 50%;
-}
-.woocommerce-ordering select {
-	font-size: 14px;
-}
-.sa_nav_div {
-	margin-right: 20px;
-}
-#siteheader .sa_nav_div a.sa_loggedin_username {
-	margin: 0 12px;
-}
+	#what {
+		padding-top: 70px;
+	}
+	 .woocommerce ul.products li.product, .woocommerce-page ul.products li.product {
+		width: 50%;
+	}
+	.woocommerce-ordering select {
+		font-size: 14px;
+	}
+	.sa_nav_div {
+		margin-right: 20px;
+	}
+	#siteheader .sa_nav_div a.sa_loggedin_username {
+		margin: 0 12px;
+	}
 	 #siteheader .logo img {
 		 width: 50px;
 		 height: 50px;
@@ -2002,12 +2015,6 @@ form.wcpv-shortcode-registration-form textarea {
 }
 .product-name .wc-booking-summary.sa_booking_summary{
 	display:block;
-}
-.sa-slick-carousel .slick-dots{
-	bottom:0;
-}
-.slick-list.draggable{
-	padding:15px 0;
 }
 @media all and (max-width:650px){
 	form.wcpv-shortcode-registration-form .form-row-first{
