@@ -199,7 +199,7 @@ function remove_note_vendor(){
         remove_submenu_page('edit.php?post_type=wc_booking','booking_notification');
     }
 }
-add_action('admin_menu','remove_note_vendor','999');
+#add_action('admin_menu','remove_note_vendor','999');
 
 /*set custom dashboard title*/
 function custom_dashboard_title(){
@@ -377,7 +377,7 @@ function cs_wc_product_type_options( $product_type_options ) {
 }
 add_filter( 'product_type_options', 'cs_wc_product_type_options' );
 // update bookings menu bubble and upcoming bookings on dashboard page
-add_action( 'admin_head', 'add_bookings_menu_bubble' );
+#add_action( 'admin_head', 'add_bookings_menu_bubble' );
 function add_bookings_menu_bubble() {
 	global $post, $wpdb, $menu;
 	if( is_user_logged_in() ){

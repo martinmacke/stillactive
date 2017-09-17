@@ -25,7 +25,7 @@
 <div class="container">
 <div class="col-xs-12">
 <h1 class="text-center sa_text_center"><?php _e('What would you like', 'stillactive'); ?> <a href="<?php echo $shop_page_url ;?>" class="blue"><?php _e('to do?', 'stillactive'); ?></a></h1>
-<p class="lead text-center"><?php _e('Still Active is a hassle-free service to meet like-minded people and discover unique activities in Stockholm!', 'stillactive'); ?></p>
+<p class="lead text-center"><?php _e("Still Active makes it easy to discover fun activities for Stockholm's 60-plus community! It's completely free to become a member, and you can easily find and book activities directly!", 'stillactive'); ?></p>
 
 <div class="sa-slick-carousel">
 
