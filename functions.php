@@ -804,20 +804,3 @@ function sa_booking_display( $item_id, $item, $order ) {
 		}
 	}
 }
-
-// add product advanced tab foe vendors
-add_filter( 'woocommerce_product_data_tabs', 'filter_woocommerce_product_data_tabs', 10, 1 );
-function filter_woocommerce_product_data_tabs( $array ) {
-	if( is_user_logged_in() ){
-		$guser	= get_userdata(get_current_user_id());
-		if( 'wc_product_vendors_admin_vendor' == $guser->roles[0] || 'wc_product_vendors_manager_vendor' == $guser->roles[0] ){
-			// make filter magic happen here...
-			$array['advanced']	= array(
-									'label'  => __( 'Advanced', 'woocommerce' ),
-									'target' => 'advanced_product_data',
-									'class'  => array(),
-								);
-		}
-	}
-	return $array;
-};
