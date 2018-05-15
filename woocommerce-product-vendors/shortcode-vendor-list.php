@@ -16,15 +16,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 			$vendor_data = get_term_meta( $vendor->term_id, 'vendor_data', true );
 
 			?>
+			<?php if(! empty( $vendor_data['logo'] )): ?>
 			<li>
+
 				<?php if ( $atts['show_name'] && 'false' !== $atts['show_name'] ) { ?>
 					<a href="<?php echo esc_url( get_term_link( $vendor->term_id, WC_PRODUCT_VENDORS_TAXONOMY ) ); ?>" class="wcpv-vendor-name"><?php echo esc_html( $vendor->name ); ?></a>
 				<?php } ?>
-
+				
 				<?php if ( $atts['show_logo'] && 'false' !== $atts['show_logo'] && ! empty( $vendor_data['logo'] ) ) { ?>
 					<a href="<?php echo esc_url( get_term_link( $vendor->term_id, WC_PRODUCT_VENDORS_TAXONOMY ) ); ?>" class="wcpv-vendor-logo"><?php echo  wp_get_attachment_image( absint( $vendor_data['logo'] ), 'medium' ); ?></a>
 				<?php } ?>
+				
 			</li>
+			<?php endif; ?>
 		<?php } ?>
 	<?php endif; ?>
 </ul>

@@ -42,6 +42,9 @@ $booking_min_persons		= get_post_meta( $post->ID, '_wc_booking_min_persons_group
 $can_cancel			= get_post_meta( $post->ID, '_wc_booking_user_can_cancel', true );
 $cancel_limit		= get_post_meta( $post->ID, '_wc_booking_cancel_limit', true );
 $cancel_limit_unit	= get_post_meta( $post->ID, '_wc_booking_cancel_limit_unit', true );
+
+$cancel_limit_unit = __($cancel_limit_unit . 's', 'woocommerce-bookings');
+
 $cancel_limit_unit_pf	= '';
 if( $cancel_limit > 1 ){
 	$cancel_limit_unit_pf = 's';
@@ -110,7 +113,7 @@ if ( 'yes' === $sold_by ) {
 
 <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
 
-	<div class="lead"><p class="price"><?php echo $product->get_price_html(); ?></p></div>
+	<div class="lead price"><?php echo $product->get_price_html(); ?></div>
 
 	<meta itemprop="price" content="<?php echo esc_attr( $product->get_display_price() ); ?>" />
 	<meta itemprop="priceCurrency" content="<?php echo esc_attr( get_woocommerce_currency() ); ?>" />
@@ -139,7 +142,7 @@ if( ! empty($map) ){
 		<div class="col-sm-6 col-xs-12 sa_address_value">
 			<p class="sa_p_address pull-right"><?php echo $map['address']; ?></p>
 			<div class="clearfix"></div>
-			<small class="sa_see_map pull-right"><a href="http://maps.google.com/?q=<?php echo $map['address']; ?>" target="_blank"><?php _e('Show Map', 'stillactive'); ?></a></small>
+			<small class="sa_see_map pull-right"><a href="http://maps.google.com/?q=<?php echo $map['lat'] . "," . $map['lng']; ?>" target="_blank"><?php _e('Show Map', 'stillactive'); ?></a></small>
 		</div>
 
 	</div>
@@ -156,7 +159,8 @@ if( 1 == $can_cancel ){
 			<strong><?php _e('Cancellation Policy', 'stillactive'); ?></strong>
 		</div>
 		<div class="col-sm-6 col-xs-12 sa_address_value">
-			<p class="sa_p_address pull-right"><?php _e('This booking can be cancelled for free until '. $cancel_limit. ' '. $cancel_limit_unit.$cancel_limit_unit_pf.' before the start date.', 'stillactive'); ?></p>
+			<!--<p class="sa_p_address pull-right"><?php #_e('This booking can be cancelled for free until '. $cancel_limit. ' '. $cancel_limit_unit.$cancel_limit_unit_pf.' before the start date.', 'stillactive'); ?></p>-->
+			<p class="sa_p_address pull-right"><?php printf( esc_html__( 'This booking can be cancelled for free until %1$s %2$s before the start date.', 'stillactive' ), $cancel_limit, $cancel_limit_unit ); ?></p>
 		</div>
 
 	</div>

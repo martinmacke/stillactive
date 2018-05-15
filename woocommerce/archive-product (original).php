@@ -32,11 +32,79 @@ get_header( 'shop' ); ?>
 		 */
 		#do_action( 'woocommerce_before_main_content' );
 	
-			global $wp_query;
-            $term_id		= get_queried_object_id();
+			$term_id		= get_queried_object_id();
 			$vendor_data	= get_term_meta($term_id, 'vendor_data', true);
 			$_pf			= new WC_Product_Factory();
-            $term =	$wp_query->queried_object;
+			
+			// echo "<pre>";
+			// print_r( $vendor_data );
+			// echo "</pre>";
+			
+			// get vendor's rating
+			// $v_rating_nos	= 0;
+			// $v_rating_count	= 0;
+			// $v_review_count	= 0;
+			// $v_average		= 0;
+			$author_id		= 0;
+			while ( have_posts() ) : the_post();
+				
+				// $product_id	= get_the_ID();
+				$author_id	= get_the_author_meta( 'ID' );
+				# echo '<br/>';
+				
+				// break;
+				// $_product	= $_pf->get_product($product_id);
+				
+				// if ( get_option( 'woocommerce_enable_review_rating' ) === 'no' ) {
+					// #do nothing
+				// }else{
+					// if( $_product->get_rating_count() > 0 ){
+						// $v_rating_nos++;
+						
+						// $v_rating_count += $_product->get_rating_count();
+						// $v_average      += $_product->get_average_rating();
+					// }
+				// }
+			endwhile;
+			
+			// echo $author_id;
+			$product_args	= array(
+				'posts_per_page'	=> -1,
+				'post_type'			=> 'product',
+				'author'			=> $author_id,
+				'post_status'		=> array('publish', 'private', 'draft'),
+				// 'meta_query' => array(
+					// array(
+						// 'key'       => '_visibility',
+						// 'value'     => 'hidden'
+					// )
+				// )
+				// 'post_status'		=> array('private')
+			);
+			$products_array = get_posts( $product_args );
+			
+			$v_rating_nos	= 0;
+			$v_rating_count	= 0;
+			$v_review_count	= 0;
+			$v_average		= 0;
+			if( count( $products_array ) > 0 ){
+				
+				foreach( $products_array as $single_prod ){
+					$product_id_	= $single_prod->ID;
+					$_product	= $_pf->get_product($product_id_);
+					
+					if ( get_option( 'woocommerce_enable_review_rating' ) === 'no' ) {
+						# do nothing
+					}else{
+						if( $_product->get_rating_count() > 0 ){
+							$v_rating_nos++;
+							
+							$v_rating_count += $_product->get_rating_count();
+							$v_average      += $_product->get_average_rating();
+						}
+					}
+				}
+			}
 			
 			// echo "<pre>";
 			// print_r( $products_array );
@@ -69,6 +137,11 @@ get_header( 'shop' ); ?>
 							<?php echo wp_get_attachment_image( $vendor_data['logo'], "medium", false, array('class'=>'sa_vendor_logo') );  ?>
 							
 							<?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) :
+							// echo $vendor_data['id'];
+							// $vendor = get_term( absint( get_queried_object_id() ), WC_PRODUCT_VENDORS_TAXONOMY );
+							// print_r($vendor);
+							// echo get_queried_object_id();
+							// echo WC_PRODUCT_VENDORS_TAXONOMY;
 							?>
 								<h1 class="page-title sa_v_title"><?php woocommerce_page_title(); ?></h1>
 								<!--<div class="lead"><?php echo get_field('vendor_description', $vendor); ?></div>-->
@@ -83,34 +156,38 @@ get_header( 'shop' ); ?>
 								</div>
 							<?php endif; ?>
 							
-                            <div class="partner-rating">
 							<?php
-                            $partner_rating = WC_Product_Vendors_Utils::get_vendor_rating($term->slug);
-                            $partner_rating_html = WC_Product_Vendors_Utils::get_vendor_rating_html($term->slug);
-                            if($partner_rating > 0): ?>
-                            <?php echo $partner_rating_html; ?>
-                            <div class="sa_v_ratings"><?php echo _e( 'Partner Rating', 'woocommerce' ); ?></div>
-                            <?php endif; ?>
-                            </div>
-                            
+								if ( $v_rating_nos > 1 ) :
+								
+									$v_rating_count		= $v_rating_count/$v_rating_nos;
+									$v_average			= $v_average/$v_rating_nos;
+							?>
+									<div class="star-rating sa_v_ratings_stars" title="<?php printf( __( 'Rated %s out of 5', 'woocommerce' ), $v_average ); ?>">
+										<span style="width:<?php echo ( ( $v_average / 5 ) * 100 ); ?>%">
+											<strong itemprop="ratingValue" class="rating"><?php echo esc_html( $v_average ); ?></strong> <?php printf( __( 'out of %s5%s', 'woocommerce' ), '<span itemprop="bestRating">', '</span>' ); ?>
+											<?php printf( _n( 'based on %s customer rating', 'based on %s customer ratings', $v_rating_count, 'woocommerce' ), '<span itemprop="ratingCount" class="rating">' . $v_rating_count . '</span>' ); ?>
+										</span>
+									</div>
+									<!--<div class="sa_v_ratings"><?php echo $v_rating_nos . __( ' Ratings', 'woocommerce' ); ?></div>-->
+									<div class="sa_v_ratings"><?php echo _e( 'Partner Rating', 'woocommerce' ); ?></div>
+							<?php
+								endif;
+							?>
 						</div>
 					</div>
 				<?php } ?>
 				
 				<div class="sa_details col-sm-6">
 					<ul class="vendor_details_ul">
-						<!--<?php if( isset($vendor_data['email']) && $vendor_data['email'] != '' ){ ?>
+						<?php if( isset($vendor_data['email']) && $vendor_data['email'] != '' ){ ?>
 							<li><a href="mailto:<?php echo $vendor_data['email']; ?>"><i class="glyphicon glyphicon-envelope"></i> <?php echo $vendor_data['email']; ?></a></li>
 						<?php } ?>
-                        -->
-						<?php if( !empty($vendor_data['phone']) ){ ?>
+						<?php if( isset($vendor_data['phone']) ){ ?>
 							<li><i class="glyphicon glyphicon-phone"></i> <?php echo $vendor_data['phone']; ?></li>
 						<?php } ?>
-                        <!--
 						<?php if( isset($vendor_data['address']) && $vendor_data['address'] != '' ){ ?>
 							<li><i class="glyphicon glyphicon-map-marker"></i> <?php echo $vendor_data['address']; ?> <small class="sa_see_map_v pull-right"><a href="http://maps.google.com/?q=<?php echo $vendor_data['address']; ?>" target="_blank">Show Map</a></small></li>
 						<?php } ?>
-                        -->
 						<?php
 							if( isset($vendor_data['website']) && $vendor_data['website'] != '' ){
 							$vendor_website	= $vendor_data['website'];

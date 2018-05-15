@@ -13,7 +13,7 @@
  * @see 	    https://docs.woocommerce.com/document/template-structure/
  * @author 		WooThemes
  * @package 	WooCommerce/Templates
- * @version     2.3.2
+ * @version     3.2.0
  */
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
@@ -26,7 +26,7 @@ if ( ! comments_open() ) {
 }
 ?>
 <div class="row">
-	<div class="col-sm-6 col-xs-12">
+	<div class="col-xs-12">
 		<div id="reviews" class="woocommerce-Reviews">
         <div id="review_popup" style="display:none" title="Review Added">
           <p>Thank you for your feeback! It helps us to further develop and improve our offerings. <a href="mailto:mailto:hello@stillactive.se">Click here</a>, if you would like to get in touch with us!</p>

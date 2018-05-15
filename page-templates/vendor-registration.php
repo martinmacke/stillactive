@@ -20,29 +20,14 @@
 
 
 
-<div class="container content">
-
-<section class="col-xs-12">
-
-<div class="page-header">
-
-<h1><?php the_title(); ?></h1>
-
-</div>
-
-</section>
-
-</div>
-
-
-
 <div class="container">
 
 <section class="col-xs-12">
 
  <?php if ( is_user_logged_in() ):?>
 
- 
+ 	<div class="col-xs-12 col-md-8 col-md-push-2 col-md-pull-2 text-center">
+	<h1 style="text-align: center" class="vc_custom_heading">Get Started with Still Active!</h1>
 
  	<?php $user = wp_get_current_user();
 
@@ -62,7 +47,7 @@
 
 	<p style="text-align:center">It looks like you are already registered and logged in. That's great, you can continue to <a href="<?php echo $admin_link; ?>" title="<?php _e('My Account','woothemes'); ?>"><?php _e('My Account','woothemes'); ?></a></p>
 
-		
+	</div>
 
 <?php else: ?>
 
@@ -71,10 +56,10 @@
 <div class="vendor-registration row sa_vr">
 
 <div class="col-xs-12 col-md-8 col-md-push-2 col-md-pull-2 text-center">
-<h1 style="text-align: center" class="vc_custom_heading">Get Started with Still Active!</h1>
-<p style="text-align: center;">It's simple and risk-free for you to join our service, as we do not charge a membership fee!</p>
-<p style="text-align: center;">We also provide you with free noboarding and training of our booking software and help you personalise your profile. If you have any questions, you can easily contact our customer support via email, phone or chat.</p>
-<p style="text-align: center;">To get started, fill in the below form, and we will get back to you within 24 hours!</p>
+<h1 style="text-align: center" class="text-center vc_custom_heading"><?php _e('Get Started with Still Active!', 'stillactive'); ?></h1>
+<p class="text-center"><?php _e("It's simple and risk-free for you to join our service, as we do not charge a membership fee!", 'stillactive'); ?></p>
+<p class="text-center"><?php _e("We also provide you with free noboarding and training of our booking software and help you personalise your profile. If you have any questions, you can easily contact our customer support via email, phone or chat.", 'stillactive'); ?></p>
+<p class="text-center"><?php _e("To get started, fill in the below form, and we will get back to you within 24 hours!", 'stillactive'); ?></p>
 
 <?php echo do_shortcode('[wcpv_registration]'); ?>
 
@@ -92,7 +77,7 @@
 
 
 
-<?php trackback_rdf() ?>
+<?php trackback_rdf(); ?>
 
 
 

@@ -45,7 +45,7 @@ $( document ).ready(function() {
 		{
 		  breakpoint: 480,
 		  settings: {
-			slidesToShow: 1,
+			slidesToShow: 2,
 			slidesToScroll: 1
 		  }
 		}
@@ -84,7 +84,7 @@ $( document ).ready(function() {
             {
               breakpoint: 510,
               settings: {
-                slidesToShow: 2,
+                slidesToShow: 1,
                 slidesToScroll: 1
               }
             }
@@ -113,7 +113,7 @@ $( document ).ready(function() {
 		{
 		  breakpoint: 510,
 		  settings: {
-			slidesToShow: 3,
+			slidesToShow: 2,
 			slidesToScroll: 1
 		  }
 		}	
@@ -219,7 +219,7 @@ function scroll_if_anchor(href) {
     if(!href) return;
 
     // You could easily calculate this dynamically if you prefer
-    var fromTop = $('#siteheader').height();
+    var fromTop = 140;
 
     // If our Href points to a valid, non-empty anchor, and is on the same page (e.g. #foo)
     // Legacy jQuery and IE7 may have issues: http://stackoverflow.com/q/1593174

@@ -72,13 +72,7 @@ font-weight: bold;
 padding: 0;
 display: none !important;
 }
-.woocommerce form.login input[type="submit"]{
-	padding: 14px 0;
-	text-transform: uppercase;
-	border: none;
-	background: #005678;
-	border-radius: 50px;
-}
+
 .woocommerce form.login input[type="submit"]:hover{
 	background: #46c8f5;
 	color: #ffffff;

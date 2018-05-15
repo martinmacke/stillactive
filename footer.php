@@ -1,16 +1,13 @@
 <!-- Footer -->
 <footer>
 <div class="container">
-<div class="row">
 
 <div class="col-sm-3 col-xs-8">
 	<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('Footer 1') ) : endif; ?>
 	<a href="#" class="hidden btn btn-lg btn-trans">English <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span></a>
 	<img class="visible-lg visible-md visible-sm" src="<?php bloginfo('template_url'); ?>/images/secure-payment.png" alt="Our payments are secure">
 </div>
-<div class="col-sm-3 col-xs-4 visible-xs footer-mobile-social-links">
-<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('Footer 4') ) : endif; ?>
-</div>
+
 <div class="clearfix visible-xs"></div>
 <div class="col-sm-3 col-xs-6">
 	<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('Footer 2') ) : endif; ?>
@@ -18,18 +15,17 @@
 <div class="col-sm-3 col-xs-6">
 	<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('Footer 3') ) : endif; ?>
 </div>
-<div class="col-sm-3 col-xs-6 visible-lg visible-md visible-sm">
+<div class="col-sm-3 col-xs-12">
 	<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('Footer 4') ) : endif; ?>
 </div>
 <div class="col-xs-12 visible-xs">
 	<img style="width: 200px;margin: 10px 0;" src="<?php bloginfo('template_url'); ?>/images/secure-payment.png" alt="Our payments are secure">
 </div>
-</div>
 
 
 <div class="clearfix visible-xs-block"></div>
 <div class="col-xs-12 bottom">
-	<p class="pull-left credit">© Still Active. All rights reserved.</p>
+	<p class="pull-left credit">© Still Active <?php echo date('Y'); ?>. <?php _e('All rights reserved.', 'stillactive'); ?></p>
 	<p class="pull-right terms"><?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('Footer Bottom Right') ) : endif; ?></p>
 </div>
 
@@ -83,44 +79,9 @@ jQuery('.woocommerce-LoopProduct-link > img').removeAttr('title');
 
 jQuery(document).ready(function(){
 	
-	
-	
-	if( jQuery("#main_menu_mobile").length > 0 ){
-		
-		jQuery('#main_menu_mobile li .sub-menu').hide();
-		if( jQuery("#main_menu_mobile li.menu-item-has-children > a").length > 0 ){
-			// jQuery("#main_menu_mobile li.menu-item-has-children > a").append('<b class="caret sa_mobile_caret"></b>');
-			$('<b class="caret sa_mobile_caret"></b>').insertAfter("#main_menu_mobile li.menu-item-has-children > a");
-		}
-		
-		jQuery('.sa_mobile_caret').click( function(){
-			jQuery(this).next().toggle();
-		});
-	}
-		
-		if( $(".sa_product_comments").length > 0 ){
-			$(".sa_product_comments li.comment.byuser").each( function(i,val){
-				console.log(i);
-				if( i > 2 ){
-					$(this).addClass('sa_hide_comments');
-					if( '' == jQuery('.sa_see_more_reviews').text() ){
-						jQuery('.sa_see_more_reviews').text('See more reviews');
-					}
-				}
-			});
-		}
-		
-		if( jQuery(".sa_see_more_reviews").length > 0 ){
-			jQuery(".sa_see_more_reviews").click( function(){
-				jQuery(this).hide();
-				jQuery('.sa_hide_comments').show();
-			});
-		}
-		
-	}
 	/* Save for later tooltip */
-	if( $('.sa_save_later_a').length > 0 ){
-		$('.sa_save_later_a').tooltip({
+	if( jQuery('.sa_save_later_a').length > 0 ){
+		jQuery('.sa_save_later_a').tooltip({
 			title: "<?php _e('Save this activity to your wishlist. Access wishlist in your account settings.', 'stillactive'); ?>",
 			placement: "auto bottom"
 		});

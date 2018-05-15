@@ -7,6 +7,8 @@ add_theme_support( 'title-tag' );
 function custom_excerpt_length( $length ) {
 	return 50;
 }
+add_theme_support( 'wc-product-gallery-lightbox' );
+
 add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
 /* Custom excerpt ending */
 function new_excerpt_more( $more ) {
@@ -35,8 +37,8 @@ function add_scripts() {
 	wp_enqueue_style( 'jquery.sidr.dark.css',  get_template_directory_uri() . '/sidr/jquery.sidr.dark.css', array(), '1.2.1', 'screen' );
 	wp_enqueue_script( 'sidr', get_template_directory_uri() . '/sidr/jquery.sidr.min.js', array('jquery'), '1.2.1', false );
 	wp_enqueue_script( 'matchheight', get_template_directory_uri() . '/js/jquery.matchHeight-min.js', array('jquery'), '0.5.2', false );
-	wp_enqueue_script( 'scripts', get_template_directory_uri() . '/js/scripts.js', array('jquery'), '1.0.1', true );
-	wp_register_style( 'stillactive', get_stylesheet_uri() . "?2", array( 'bootstrap.css' ));
+	wp_enqueue_script( 'scripts', get_template_directory_uri() . '/js/scripts.js', array('jquery'), '1.0.6', true );
+	wp_register_style( 'stillactive', get_stylesheet_uri(), array( 'bootstrap.css' ), '1.6.6');
     wp_enqueue_style( 'stillactive' );
 	wp_register_script('masonryInit', get_stylesheet_directory_uri() . '/js/masonry.js', array('masonry'), '2.1.6', true);
 	wp_enqueue_script('masonryInit');
@@ -138,7 +140,6 @@ function woocommerce_support() {
 }
 /* Custom thumbnail sizes */
 if ( function_exists( 'add_image_size' ) ) {
-	add_image_size( '400x300', 400, 300, array( 'center', 'center' ) );
 	add_image_size( 'square', 400, 400, array( 'center', 'center' ) );
 	add_image_size( 'Blogpost', 800, 300, array( 'center', 'center' ) );
 	add_image_size( '600x450', 600, 450, array( 'center', 'center' ) );
@@ -147,7 +148,6 @@ if ( function_exists( 'add_image_size' ) ) {
 add_filter( 'image_size_names_choose', 'my_custom_sizes' );
 function my_custom_sizes( $sizes ) {
     return array_merge( $sizes, array(
-         '400x300' => __('400x300'),
 		'square' => __('Square'),
 		'800x300' => __('Blogpost'),
 		 '600x450' => __('600x450'),
@@ -803,4 +803,22 @@ function sa_booking_display( $item_id, $item, $order ) {
 			<?php
 		}
 	}
+}
+
+// Disable product review (tab)
+function woo_remove_product_tabs($tabs) {
+	//unset($tabs['description']);     			// Remove Description tab
+	//unset($tabs['additional_information']);  	// Remove Additional Information tab
+	unset($tabs['reviews']); 					// Remove Reviews tab
+
+	return $tabs;
+}
+
+add_filter( 'woocommerce_product_tabs', 'woo_remove_product_tabs', 98 );
+
+/* Make phone number required during checkout */
+add_filter( 'woocommerce_billing_fields', 'wc_npr_filter_phone', 10, 1 );
+function wc_npr_filter_phone( $address_fields ) {
+  $address_fields['billing_phone']['required'] = true;
+  return $address_fields;
 }

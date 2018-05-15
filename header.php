@@ -63,13 +63,8 @@ $my_home_url = apply_filters( 'wpml_home_url', get_option( 'home' ) );
 
 <div class="col-xs-12">
 	<a href="<?php echo $my_home_url; ?>" class="logo"><img src="<?php bloginfo('template_url'); ?>/images/logo-stillactive-blue.svg" width="140" height="140" alt="Logo Still Active"></a>
-	<div class="text-right pull-right sa_nav_div">
 		<?php wp_nav_menu( array( 'theme_location' => 'main-menu', 'container' => 'nav', 'menu_class' => 'menu menu-main-menu', 'container_class' => 'hidden-xs', 'fallback_cb' => false ) ); ?>
 
-		
-		
-		<div class="menu_except_search">
-			
 			<?php
 			$account_page_url = get_permalink( get_option('woocommerce_myaccount_page_id') );
 			if ( is_user_logged_in() ) {
@@ -95,21 +90,21 @@ $my_home_url = apply_filters( 'wpml_home_url', get_option( 'home' ) );
 
 			<?php
 				global $woocommerce;
-				$amount = $woocommerce->cart->cart_contents_total+$woocommerce->cart->tax_total;
-				$currency_symbol = get_woocommerce_currency_symbol();
+				$amount = WC()->cart->get_cart_total();
+				//$currency_symbol = get_woocommerce_currency_symbol();
 				if ( sizeof( WC()->cart->cart_contents) > 0 ) :
-				echo '<a class="cart-contents" href="' . WC()->cart->get_cart_url() . '" title="' . __( 'View shopping cart' ) . '">' . $amount . $currency_symbol . '</a>';
+				echo '<a class="cart-contents sa_mobile_menu" href="' . WC()->cart->get_cart_url() . '" title="' . __( 'View shopping cart' ) . '"><i class="fa fa-shopping-bag" aria-hidden="true"></i><div class="sa_menu_text">' . $amount . '</div></a>';
 				endif;
 			?>
-
-			<a id="sa_mobile_menu" class="visible-xs sa_mobile_menu" href="javascript:void(0);" data-target="#sa_mobile_menu_div" data-toggle="collapse" class="navbar-toggle">
+		
+		<a id="sa_mobile_menu" class="visible-xs sa_mobile_menu" href="javascript:void(0);" data-target="#sa_mobile_menu_div" data-toggle="collapse" class="navbar-toggle">
 				<i class="fa fa-bars" aria-hidden="true"></i>
 				<div class='sa_menu_text'>Menu</div>
 			</a>
+	
 			<?php
 				wp_nav_menu( array( 'theme_location' => 'main-menu', 'menu_id' => 'main_menu_mobile', 'container' => 'div', 'menu_class' => 'sa_ul_mobile_menu nav navbar-nav', 'container_id' => 'sa_mobile_menu_div', 'container_class' => 'sa_mobile_menu_nav collapse', 'fallback_cb' => false) );
 			?>
-		</div>
 		
 		<ul class="blognav hidden-xs">
 		<?php
@@ -122,7 +117,6 @@ $my_home_url = apply_filters( 'wpml_home_url', get_option( 'home' ) );
 			<i class="fa fa-search" aria-hidden="true"></i>
 			<div class='sa_menu_text'><?php _e('Search', 'stillactive'); ?></div>
 		</a>
-	</div>
 </div>
 
 </div>
